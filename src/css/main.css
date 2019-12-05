@@ -1,0 +1,69 @@
+@import url(./elements.css);
+
+:root {
+    --background: #101014;
+    --foreground: #202028;
+    --accent-1: #2196F3;
+    --accent-2: #FF5722;
+    --accent-3: #52526e;
+    
+    --list-color-1: #F44336;
+    --list-color-2: #E91E63;
+    --list-color-3: #9C27B0;
+    --list-color-4: #3F51B5;
+    --list-color-5: #009688;
+    --list-color-6: #4CAF50;
+    --list-color-7: #FFC107;
+    --list-color-8: #FF5722;
+    --list-color-9: #795548;
+}
+
+body {
+    background-color: var(--background);
+    margin: 0;
+}
+
+header {
+    position: fixed;
+    left: 0;
+    top: -100vh;
+    width: 100vw;
+    height: 100vh;
+    padding-bottom: 50px;
+    background-color: var(--foreground);
+}
+
+nav {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 50px;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: -100vh;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 50px;
+    background-color: var(--foreground);
+}
+
+.tool-menu {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 50px;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+@media screen and (max-width: 500px) {
+}
