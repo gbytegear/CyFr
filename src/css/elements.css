@@ -5,11 +5,16 @@ button {
     outline: none;
     color: var(--accent-1);
     font-size: large;
-    transition: .3s;
+    transition: .2s;
     cursor: pointer;
 }
 
-button:not(.top):not(.bottom) {
+button:not([class]):focus {
+    box-shadow: 0 0 5px 0 var(--accent-1);
+    text-shadow: 0 0 5px var(--accent-1);
+}
+
+button:not([class]) {
     border-radius: 1em;
     height: 2em;
     color: var(--accent-1);
@@ -17,13 +22,13 @@ button:not(.top):not(.bottom) {
     box-shadow: inset 0 0 1px var(--accent-1);
 }
 
-button:not(.top):not(.bottom):hover {
+button:not([class]):hover {
     color: var(--foreground);
     border: 2px solid transparent;
     box-shadow: inset 0 2em 1px var(--accent-1);
 }
 
-button:not(.top):not(.bottom):active {
+button:not([class]):active {
     color: var(--foreground);
     border: 2px solid var(--accent-2);
     background-color: var(--accent-2);

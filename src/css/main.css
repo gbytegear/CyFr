@@ -1,8 +1,10 @@
+@import url(./decoration.css);
 @import url(./elements.css);
 
 :root {
     --background: #101014;
     --foreground: #202028;
+    --accent-0: #fff;
     --accent-1: #2196F3;
     --accent-2: #FF5722;
     --accent-3: #52526e;
@@ -23,6 +25,14 @@ body {
     margin: 0;
 }
 
+.content {
+    width: 100%; height: 100%;
+    transition: all .5s ease .5s;
+}
+
+
+/* HEADER */
+
 header {
     position: fixed;
     left: 0;
@@ -31,7 +41,32 @@ header {
     height: 100vh;
     padding-bottom: 50px;
     background-color: var(--foreground);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%);
+    transition: all .5s ease 0s, background .5s ease .5s;
 }
+
+/* states */
+
+.header-open header {
+    top: 0;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 200px), 50% 100%, 0 calc(100% - 200px));
+    padding-bottom: 250px;
+    background-color: var(--background);
+}
+
+.footer-open header {
+    padding-bottom: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+body:not(.header-open) header>.content {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+/* HEADER>NAV */
 
 nav {
     position: absolute;
@@ -42,7 +77,38 @@ nav {
 
     display: flex;
     justify-content: space-around;
+
+    transition: 1s;
 }
+
+/* states */
+
+.header-open nav{
+    bottom: 50px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+/* HEADER>.CONTENT */
+
+header .top-menu {
+    border-bottom: 2px solid var(--accent-1);
+    width: 100vw; height: 38px;
+    padding-top: 2px;
+
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+
+
+
+
+
+/* FOOTER */
 
 footer {
     position: fixed;
@@ -52,7 +118,26 @@ footer {
     height: 100vh;
     padding-top: 50px;
     background-color: var(--foreground);
+    clip-path: polygon(0 0, 50% 0, 100% 0, 100% 100%, 0 100%);
+    transition: all .5s ease 0s, background .5s ease .5s;
 }
+
+/* states */
+
+.header-open footer {
+    padding-top: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.footer-open footer {
+    bottom: 0;
+    clip-path: polygon(0 200px, 50% 0, 100% 200px, 100% 100%, 0 100%);
+    padding-bottom: 250px;
+    background-color: var(--background);
+}
+
+/* FOOTER>.tool-menu */
 
 .tool-menu {
     position: absolute;
@@ -74,16 +159,23 @@ article {
   left: 0;top: 0;
   margin-top: 50px;
   margin-bottom: 50px;
-  overflow: scroll;
+  overflow: hidden;
   
   width: 100vw;
   height: calc(100vh - 100px);
+
+  transition: 1s;
+}
+
+.header-open article, .footer-open article{
+    opacity: 0;
+    visibility: hidden;
 }
 
 section {
   display: inline-block;
   width: calc(100vw - 20px);
-  height: calc(100vh - 180px);
+  height: calc(100vh - 120px);
   margin: 10px;
   border-radius: 5px;
   background-color: var(--foreground);

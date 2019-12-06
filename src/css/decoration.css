@@ -1,0 +1,42 @@
+button.add-button {
+    display: block;
+    position: fixed;
+    bottom: 60px; right: 25px;
+
+    width: 50px; height: 50px;
+    border-radius: 25px;
+    border: 2px solid var(--accent-1);
+    background-color: var(--accent-1);
+
+    padding: 0;
+
+    box-shadow: inset 0 0 0 0 var(--accent-1);
+    transition: .2s;
+}
+
+button.add-button:hover, button.add-button:focus {
+    background-color: transparent;
+}
+
+button.add-button:active{
+    background-color: transparent;
+    box-shadow: inset 50px 50px 0 0 var(--accent-1);
+}
+
+button.add-button>div:nth-child(1){
+    width: 25px;
+    height: 2px;
+    background-color: var(--accent-0);
+    
+    position: absolute;
+    top: 22px; left: 10px;
+}
+
+button.add-button>div:nth-child(2){
+    width: 2px;
+    height: 25px;
+    background-color: var(--accent-0);
+    
+    position: absolute;
+    top: 10px; left: 22px;
+}
