@@ -65,5 +65,29 @@ footer {
     justify-content: space-around;
 }
 
+
+/*Content*/
+
+article {
+  position: fixed;
+  white-space: nowrap;
+  left: 0;top: 0;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  overflow: scroll;
+  
+  width: 100vw;
+  height: calc(100vh - 100px);
+}
+
+section {
+  display: inline-block;
+  width: calc(100vw - 20px);
+  height: calc(100vh - 180px);
+  margin: 10px;
+  border-radius: 5px;
+  background-color: var(--foreground);
+}
+
 @media screen and (max-width: 500px) {
 }
