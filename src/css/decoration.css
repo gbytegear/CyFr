@@ -10,33 +10,31 @@ button.add-button {
 
     padding: 0;
 
-    box-shadow: inset 0 0 0 0 var(--accent-1);
     transition: .2s;
 }
 
-button.add-button:hover, button.add-button:focus {
-    background-color: transparent;
+.editor-open button.add-button {
+    transform: rotate(45deg);
 }
 
-button.add-button:active{
-    background-color: transparent;
-    box-shadow: inset 50px 50px 0 0 var(--accent-1);
+button.add-button:hover, button.add-button:focus {
+    background-color: var(--background);
 }
 
 button.add-button>div:nth-child(1){
     width: 25px;
-    height: 2px;
+    height: 5px;
     background-color: var(--accent-0);
     
     position: absolute;
-    top: 22px; left: 10px;
+    top: 19px; left: 10px;
 }
 
 button.add-button>div:nth-child(2){
-    width: 2px;
+    width: 5px;
     height: 25px;
     background-color: var(--accent-0);
     
     position: absolute;
-    top: 10px; left: 22px;
+    top: 10px; left: 19px;
 }
