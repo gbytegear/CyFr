@@ -93,9 +93,8 @@ nav {
 /* HEADER>.CONTENT */
 
 header .top-menu {
-    border-bottom: 2px solid var(--accent-1);
-    width: 100vw; height: 38px;
-    padding-top: 2px;
+    width: 100vw; height: 50px;
+	background-color: var(--foreground);
 
     display: flex;
     justify-content: space-around;
@@ -190,11 +189,24 @@ section {
     transition: .5s;
 }
 
+.post-editor>*{
+  visibility: hidden;
+  opacity: 0;
+  transition: .5s;
+}
+
 .editor-open .post-editor{
     background-color: var(--background);
-    bottom: 0; right: 0;
-    width: 100vw; height: 100vh;
+    bottom: 50px; right: 0;
+    width: 100vw;
+	height: calc(100vh - 160px);
     border-radius: 0;
+}
+
+.editor-open .post-editor>*{
+  visibility: visible;
+  opacity: 1;
+  transition: 1s ease .5s;
 }
 
 @media screen and (max-width: 500px) {
