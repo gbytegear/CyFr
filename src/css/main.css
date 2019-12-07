@@ -2,8 +2,8 @@
 @import url(./elements.css);
 
 :root {
-    --background: #101014;
-    --foreground: #202028;
+    --background: #000;
+    --foreground: #181818;
     --accent-0: #fff;
     --accent-1: #2196F3;
     --accent-2: #FF5722;
@@ -29,6 +29,12 @@ body {
     width: 100%; height: 100%;
     transition: all .5s ease .5s;
 }
+
+
+
+
+
+
 
 
 /* HEADER */
@@ -132,8 +138,13 @@ footer {
 .footer-open footer {
     bottom: 0;
     clip-path: polygon(0 200px, 50% 0, 100% 200px, 100% 100%, 0 100%);
-    padding-bottom: 250px;
+    padding-top: 250px;
     background-color: var(--background);
+}
+
+body:not(.footer-open) footer>.content {
+    opacity: 0;
+    visibility: hidden;
 }
 
 /* FOOTER>.tool-menu */
@@ -148,6 +159,57 @@ footer {
     display: flex;
     justify-content: space-around;
 }
+
+footer .top-menu {
+    width: 100vw; height: 50px;
+	background-color: var(--foreground);
+
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+
+
+
+
+/* POST-EDITOR */
+
+.post-editor {
+    position: fixed;
+    bottom: 60px; right: 25px;
+    width: 50px; height: 50px;
+    border-radius: 25px;
+    background-color: var(--accent-1);
+    transition: .5s;
+}
+
+.post-editor>*{
+  visibility: hidden;
+  opacity: 0;
+  transition: .5s;
+}
+
+.editor-open .post-editor{
+    background-color: var(--background);
+    bottom: 50px; right: 0;
+    width: 100vw;
+	height: calc(100vh - 100px);
+    border-radius: 0;
+}
+
+.editor-open .post-editor>*{
+  visibility: visible;
+  opacity: 1;
+  transition: 1s ease .5s;
+}
+
+
+
+
+
+
 
 
 /*Content*/
@@ -180,34 +242,6 @@ section {
   background-color: var(--foreground);
 }
 
-.post-editor {
-    position: fixed;
-    bottom: 60px; right: 25px;
-    width: 50px; height: 50px;
-    border-radius: 25px;
-    background-color: var(--accent-1);
-    transition: .5s;
-}
-
-.post-editor>*{
-  visibility: hidden;
-  opacity: 0;
-  transition: .5s;
-}
-
-.editor-open .post-editor{
-    background-color: var(--background);
-    bottom: 50px; right: 0;
-    width: 100vw;
-	height: calc(100vh - 160px);
-    border-radius: 0;
-}
-
-.editor-open .post-editor>*{
-  visibility: visible;
-  opacity: 1;
-  transition: 1s ease .5s;
-}
 
 @media screen and (max-width: 500px) {
 }
