@@ -216,11 +216,13 @@ footer .top-menu {
 
 article {
   position: fixed;
-  white-space: nowrap;
+  /* white-space: nowrap; */
   left: 0;top: 0;
   margin-top: 50px;
   margin-bottom: 50px;
-  overflow: hidden;
+  /* overflow: hidden; */
+  overflow-y: auto;
+  overflow-x: hidden;
   
   width: 100vw;
   height: calc(100vh - 100px);
@@ -234,14 +236,20 @@ article {
 }
 
 section {
-  display: inline-block;
+  /* display: inline-block; */
   width: calc(100vw - 20px);
   height: calc(100vh - 120px);
   margin: 10px;
   border-radius: 5px;
   background-color: var(--foreground);
+  box-sizing: border-box;
+  padding-left: 20vw;
+  padding-right: 20vw;
 }
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 690px) {
+    section {
+        padding: 0;
+    }
 }

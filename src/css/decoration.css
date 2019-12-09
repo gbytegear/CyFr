@@ -1,7 +1,5 @@
-button.add-button {
+button.circle-button {
     display: block;
-    position: fixed;
-    bottom: 60px; right: 25px;
 
     width: 50px; height: 50px;
     border-radius: 25px;
@@ -13,15 +11,27 @@ button.add-button {
     transition: .2s;
 }
 
-.editor-open button.add-button {
+button.circle-button:hover, button.circle-button:focus {
+    background-color: var(--background);
+    box-shadow: 0 0 5px 0 var(--accent-1);
+}
+
+button.circle-button:active{
+    border-color: var(--accent-2);
+    box-shadow: 0 0 5px 0 var(--accent-2);
+    transition: 0s;
+}
+
+button#open_editor_button {
+    position: fixed;
+    bottom: 60px; right: 25px;
+}
+
+.editor-open button#open_editor_button {
     transform: rotate(45deg);
 }
 
-button.add-button:hover, button.add-button:focus {
-    background-color: var(--background);
-}
-
-button.add-button>div:nth-child(1){
+button#open_editor_button>div:nth-child(1){
     width: 25px;
     height: 5px;
     background-color: var(--accent-0);
@@ -30,11 +40,21 @@ button.add-button>div:nth-child(1){
     top: 20px; left: 10px;
 }
 
-button.add-button>div:nth-child(2){
+button#open_editor_button>div:nth-child(2){
     width: 5px;
     height: 25px;
     background-color: var(--accent-0);
     
     position: absolute;
     top: 10px; left: 20px;
+}
+
+
+button#send_post_button {
+    position: fixed;
+    bottom: 60px; right: 25px;
+}
+
+.editor-open button#send_post_button {
+    right: calc(100vw - 85px);
 }

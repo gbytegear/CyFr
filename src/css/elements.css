@@ -47,8 +47,7 @@ button.top:hover, button.bottom:hover {
 }
 
 button.top:focus, button.bottom:focus {
-    text-shadow: -2px 4px 8px rgb(0, 0, 0),
-    -2px 4px 5px rgb(0, 0, 0);
+    text-shadow: 0 0 5px var(--accent-2);
     --selected: 1;
 }
 
@@ -93,4 +92,34 @@ button.bottom::before {
   border-bottom: 2px solid var(--accent-1);
   outline: none;
   color: var(--accent-1);
+}
+
+
+
+
+
+::-webkit-scrollbar-button {
+    height:0px
+}
+
+::-webkit-scrollbar-track {
+    background-color:   transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background-color:var(--accent-1);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color:var(--accent-2);
+}
+
+::-webkit-resizer{
+    height:0px
+}
+
+::-webkit-scrollbar{
+    width: 5px;
 }

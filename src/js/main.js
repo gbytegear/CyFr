@@ -7,8 +7,8 @@ const switchClass = (element, _class) =>
 
 
 //Events
-document.querySelector('nav>button[data-act="menu"]').addEventListener('click', ()=>switchClass(document.body, "header-open"));
-document.querySelector('.top-menu>button[data-act="menu"]').addEventListener('click', ()=>switchClass(document.body, "header-open"));
-document.querySelector('.tool-menu>button[data-act="tool-menu"]').addEventListener('click', ()=>switchClass(document.body, "footer-open"));
-document.querySelector('.top-menu>button[data-act="tool-menu"]').addEventListener('click', ()=>switchClass(document.body, "footer-open"));
-document.querySelector('.add-button').addEventListener('click', ()=>switchClass(document.body, "editor-open"));
+open_menu_button.addEventListener('click', ()=>switchClass(document.body, "header-open"));
+close_menu_button.addEventListener('click', ()=>switchClass(document.body, "header-open"));
+open_tool_menu_button.addEventListener('click', ()=>switchClass(document.body, "footer-open"));
+close_tool_menu_button.addEventListener('click', ()=>switchClass(document.body, "footer-open"));
+open_editor_button.addEventListener('click', ()=>switchClass(document.body, "editor-open"));

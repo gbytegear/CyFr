@@ -16,18 +16,19 @@
     <div class="post-editor">
 	  <input type="text" id="editor_main_header"/>
 	  <div class="add-block"></div>
-	</div>
-    <button class="add-button">
+    </div>
+    <button class="circle-button" id="send_post_button"></button>
+    <button class="circle-button" id="open_editor_button">
         <div></div>
         <div></div>
     </button>
     <header>
         <nav>
-            <button class="top" data-act="page">Page</button>
-            <button class="top" data-act="messages">Messages</button>
-            <button class="top" data-act="groups">Groups</button>
-            <button class="top" data-act="tabs">Tabs</button>
-		    <button class="top" data-act="menu">≡</button>
+            <button class="top" >Page</button>
+            <button class="top" >Messages</button>
+            <button class="top" >Groups</button>
+            <button class="top" >Tabs</button>
+		    <button class="top" id="open_menu_button">≡</button>
         </nav>
         <div class="content">
             <div class="top-menu">
@@ -35,7 +36,7 @@
 			    <button class="top">Privacy</button>
 			    <button class="top">Security</button>
 			    <button class="top">Black List</button>
-			    <button class="top" data-act="menu">X</button>
+			    <button class="top" id="close_menu_button">X</button>
             </div>
         </div>
     </header>
@@ -45,12 +46,12 @@
             <button class="bottom">Share</button>
 		    <button class="bottom">Save</button>
             <button class="bottom">Comment</button>
-            <button class="bottom" data-act="tool-menu">Options</button>
+            <button class="bottom" id="open_tool_menu_button">Options</button>
             <button class="bottom">&gt;</button>
         </div>
         <div class="content">
             <div class="top-menu">
-                <button class="top" data-act="tool-menu">X</button>
+                <button class="top" id="close_tool_menu_button">X</button>
             </div>
         </div>
     </footer>
