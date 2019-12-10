@@ -1,5 +1,6 @@
 const ImageController = class extends HTMLElement {
     base64 = null;
+    properties = new Object;
 
     constructor () {
         super();
@@ -32,6 +33,9 @@ const ImageController = class extends HTMLElement {
                     canvas.width = img.naturalWidth;
                     canvas.getContext('2d').drawImage(img, 0, 0);
                     this.base64 = canvas.toDataURL("image/webp");
+
+                    this.setAttribute("width", img.naturalWidth);
+                    this.setAttribute("height", img.naturalHeight);
                 }
                 img.setAttribute('crossorigin', 'anonymous');
                 img.src = new_value;
@@ -53,40 +57,49 @@ const ImageController = class extends HTMLElement {
         element.href = URL.createObjectURL(blob);
         element.click();
     }
+
+    connectedCallback() {
+        this.innerHTML = "<button class='image-download' title='Download image'><svg-loader src='./src/img/decoration/download.svg'></svg-loader></button>";
+        this.querySelector('.image-download').addEventListener('click', () => this.download());
+    }
 }
 
 customElements.define('image-ctrlr', ImageController);
 
-jscss.add("section image-ctrlr", {
-    display: "block",
-    background_size: "cover",
-    background_position: "center",
-    background_color : new Color(0, 0, 0),
-    width: "500px",
-    height: "500px",
-    margin: "auto",
-    border_radius: "10px",
-});
-
-jscss.add("section image-ctrlr", {
-    width: "100%",
-    height: "500px",
-    margin: "0"
-}, "screen and (max-width: 690px)");
 
 
 
-
-
-
-
-const SvgLoader = class SvgLoad extends SVGSVGElement {
+const SvgLoader = class SvgLoad extends HTMLElement {
     constructor() {
         super();
     }
 
     static get observedAttributes() {return ['src']}
 
+    attributeChangedCallback(name, old_value, new_value) {
+        switch(name) {
+            case "src":
+                if(!new_value)return;
+                this.load(new_value);
+                return this.removeAttribute('src');
+        }
+    }
+
+    load(url) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', url, true);
+        xhr.send();
+
+        xhr.onreadystatechange = () => { 
+            if (xhr.readyState != 4) return;
+
+            if (xhr.status != 200)
+                console.warn(xhr.status + ': ' + xhr.statusText);
+                else 
+                this.innerHTML = xhr.responseText;
+            this.parentNode.replaceChild(this.childNodes[0], this);
+        }
+    }
 
 }
 

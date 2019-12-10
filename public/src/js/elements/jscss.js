@@ -45,8 +45,9 @@ const jscss = new class {
                     case "Array":
                         let prop_str = "";
                         for(let sub_prop in property)
-                            prop_str += parseProperty(property[sub_prop]);
+                            prop_str += ` ${parseProperty(property[sub_prop])}`;
                         return prop_str;
+                    case "Number": return property.toString();
                 }
             }
         let css = new String;
