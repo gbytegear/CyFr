@@ -1,0 +1,15 @@
+section>h1:first-child {
+  width: 100%;
+  color: var(--accent-1);
+  text-align: center;
+  font-size: 2em;
+  font-weight: 900;
+  
+  border-bottom: 2px solid var(--accent-1);
+}
+
+section p:first-letter {
+  font-size: 2em;
+  color: var(--accent-1);
+  margin-left: 1em;
+}
