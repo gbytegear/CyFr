@@ -52,9 +52,51 @@ button#open_editor_button>div:nth-child(2){
 
 button#send_post_button {
     position: fixed;
+	overflow:hidden;
     bottom: 60px; right: 25px;
+	font-weight: 900;
+    font-size: 2em;
+	color: var(--accent-0);
+	transition: .5s;
+	
+	box-sizing: border-box;
 }
 
 .editor-open button#send_post_button {
     right: calc(100vw - 85px);
+	transform: rotate(360deg);
+}
+
+button#send_post_button:active {
+    padding-right: 1em;
+	transition: .2s;
+}
+
+
+button#zen_mode_switch {
+  position: fixed;
+  top: 60px; right: 25px;
+  color: var(--accent-0);
+  transition: 1s;
+  font-weight: 900;
+  font-size: 2em;
+}
+
+.zen-mode button#zen_mode_switch {
+  top:10px;
+  transform: rotate(360deg);
+}
+
+button#editor_add_block {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  border: 2px solid var(--accent-1);
+  margin: 10px;
+  transition: .5s;
+}
+
+.block-types button#editor_add_block {
+  transform: rotate(45deg);
 }

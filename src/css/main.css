@@ -1,5 +1,6 @@
 @import url(./decoration.css);
 @import url(./elements.css);
+@import url(./content.css);
 
 :root {
     --background: #000;
@@ -9,6 +10,8 @@
     --accent-2: #FF5722;
     --accent-3: #52526e;
     
+	--text-color: #a0a0af;
+	
     --list-color-1: #F44336;
     --list-color-2: #E91E63;
     --list-color-3: #9C27B0;
@@ -23,6 +26,9 @@
 body {
     background-color: var(--background);
     margin: 0;
+	font-family: Segoe UI;
+	color: var(--text-color);
+	overflow: hidden;
 }
 
 .content {
@@ -60,7 +66,7 @@ header {
     background-color: var(--background);
 }
 
-.footer-open header {
+.footer-open header, .zen-mode header {
     padding-bottom: 0;
     opacity: 0;
     visibility: hidden;
@@ -129,7 +135,7 @@ footer {
 
 /* states */
 
-.header-open footer {
+.header-open footer, .zen-mode footer {
     padding-top: 0;
     opacity: 0;
     visibility: hidden;
@@ -160,12 +166,15 @@ body:not(.footer-open) footer>.content {
     justify-content: space-around;
 }
 
-footer .top-menu {
+footer .menu {
     width: 100vw; height: 50px;
 	background-color: var(--foreground);
 
     display: flex;
     justify-content: space-around;
+	
+	position: absolute;
+	left:0; bottom: 0;
 }
 
 
@@ -193,17 +202,46 @@ footer .top-menu {
 
 .editor-open .post-editor{
     background-color: var(--background);
-    bottom: 50px; right: 0;
+	box-sizing: border-box;
+    bottom: 0; right: 0;
     width: 100vw;
-	height: calc(100vh - 100px);
+	height: 100vh;
+	padding-top: 100px;
+	padding-bottom: 50px;
     border-radius: 0;
 }
 
-.editor-open .post-editor>*{
+.editor-open .post-editor>*:not(.type-wrapper){
   visibility: visible;
   opacity: 1;
   transition: 1s ease .5s;
 }
+
+.type-wrapper{
+  display: inline;
+  visibility: hidden;
+  opacity: 0;
+  transition: 1s;
+  text-align: center;
+}
+
+
+.block-types .type-wrapper {
+  visibility: visible;
+  opacity: 1;
+  transition: 1s;
+}
+
+.type-wrapper>*{
+  display: inline-block !important;
+  letter-spacing: -.5em;
+  transition: letter-spacing .5s;
+}
+
+.block-types .type-wrapper>*{
+  letter-spacing: 0;
+}
+
 
 
 
@@ -216,18 +254,26 @@ footer .top-menu {
 
 article {
   position: fixed;
-  /* white-space: nowrap; */
   left: 0;top: 0;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  /* overflow: hidden; */
   overflow-y: auto;
   overflow-x: hidden;
   
-  width: 100vw;
-  height: calc(100vh - 100px);
+  width: 690px;
+  height: calc(100vh - 150px);
+  
+  box-sizing: padding-box;
+  padding-top: 50px;
+  
+  display: block;
+  margin-left: calc(50vw - 345px);
+  margin-right: calc(50vw - 345px);
 
   transition: 1s;
+}
+
+.zen-mode article {
+  height: calc(100vh - 50px);
+  padding: 0;
 }
 
 .header-open article, .footer-open article{
@@ -236,20 +282,24 @@ article {
 }
 
 section {
-  /* display: inline-block; */
-  width: calc(100vw - 20px);
-  height: calc(100vh - 120px);
+  width: calc(100% - 20px);
+  min-height: 200px;
   margin: 10px;
+  
   border-radius: 5px;
   background-color: var(--foreground);
   box-sizing: border-box;
-  padding-left: 20vw;
-  padding-right: 20vw;
+  padding-left: 5px;
+  padding-right: 5px;
+  
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 
 @media screen and (max-width: 690px) {
-    section {
-        padding: 0;
+    article {
+        margin: 0;
+		width: 100vw;
     }
 }
