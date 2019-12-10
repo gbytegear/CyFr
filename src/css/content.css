@@ -13,3 +13,21 @@ section p:first-letter {
   color: var(--accent-1);
   margin-left: 1em;
 }
+
+section>.image {
+  --src: url(../img/orig.gif);
+  background-image: var(--src);
+  background-size: cover;
+  background-position: center;
+  width: 500px;
+  height: 500px;
+  margin: auto;
+  border-radius: 10px;
+}
+
+section>.image::before {
+  position: absolute;
+  display: block;
+  bottom: 0;
+  left: 0;
+}

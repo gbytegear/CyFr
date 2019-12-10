@@ -13,7 +13,7 @@ open_tool_menu_button.addEventListener('click', ()=>switchClass(document.body, "
 close_tool_menu_button.addEventListener('click', ()=>switchClass(document.body, "footer-open"));
 open_editor_button.addEventListener('click', ()=>switchClass(document.body, "editor-open"));
 zen_mode_switch.addEventListener('click', ()=>switchClass(document.body, "zen-mode", 
-()=>document.body.requestFullScreen(),
-()=>document.body.cancelFullScreen()));
+()=>document.body.requestFullscreen(),
+()=>document.exitFullscreen()));
 
 editor_add_block.addEventListener('click', ()=>switchClass(document.querySelector('.post-editor'), "block-types"));
