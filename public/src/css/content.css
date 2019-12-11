@@ -83,6 +83,17 @@ section file-downloader {
   margin: auto;
 }
 
+selector .slider {
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+selector .slider>*{
+  display: inline-block !important;
+}
+
 @media screen and (max-width: 690px) {
   section video{
     width: 100%;
