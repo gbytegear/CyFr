@@ -62,10 +62,12 @@ jscss.add("section image-ctrlr", {
     height: "500px",
     margin: "auto",
     border_radius: "20px",
+    margin_bottom: "10px"
 });
 
 jscss.add("section image-ctrlr", {
     width: "100%",
     height: "500px",
-    margin: "0"
+    margin: "0",
+    margin_bottom: "10px"
 }, "screen and (max-width: 690px)");

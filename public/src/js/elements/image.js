@@ -39,7 +39,7 @@ const ImageController = class extends HTMLElement {
                 }
                 img.setAttribute('crossorigin', 'anonymous');
                 img.src = new_value;
-                this.removeAttribute('src')
+                this.removeAttribute('src');
             break;
         }
     }
