@@ -4,14 +4,12 @@
 
 :root {
     --background: #000;
-    --foreground: #1f1f1f;
+    --foreground: #0e1822;
     --accent-0: #fff;
     --accent-1: #2196F3;
     --accent-2: #FF5722;
     --accent-3: #52526e;
-    
-	--text-color: #a0a0af;
-	
+    --text-color: #a0a0af;
     --list-color-1: #F44336;
     --list-color-2: #E91E63;
     --list-color-3: #9C27B0;
@@ -21,6 +19,7 @@
     --list-color-7: #FFC107;
     --list-color-8: #FF5722;
     --list-color-9: #795548;
+    --main-block-width: 700px;
 }
 
 body {
@@ -272,8 +271,8 @@ article {
   padding-bottom: 50px;
   
   display: block;
-  padding-left: calc(50vw - 345px);
-  padding-right: calc(50vw - 345px);
+  padding-left: calc(50vw - var(--main-block-width)/2);
+  padding-right: calc(50vw - var(--main-block-width)/2);
 
   transition: 1s;
 }
@@ -305,12 +304,12 @@ section {
 }
 
 .zen-mode section {
-    padding-left: calc(50vw - 345px);
-    padding-right: calc(50vw - 345px);
+    padding-left: calc(50vw - var(--main-block-width)/2);
+    padding-right: calc(50vw - var(--main-block-width)/2);
 }
 
 
-@media screen and (max-width: 690px) {
+@media screen and (max-width: var(--main-block-width)) {
     article {
         margin: 0;
 		width: 100vw;

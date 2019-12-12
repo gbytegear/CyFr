@@ -1,3 +1,6 @@
+
+/* HEADER */
+
 section>h1:first-child {
   width: 100%;
   color: var(--accent-1);
@@ -35,6 +38,8 @@ section>h4 {
   border-bottom: 3px dotted var(--accent-1);
 }
 
+/* PARAGRAPHS */
+
 section p:first-letter {
   font-size: 2em;
   color: var(--accent-1);
@@ -53,21 +58,62 @@ section p.paragraph-justify {
   text-align: justify;
 }
 
+/* IMAGE CONTROLLER */
+
+section image-ctrlr {
+  width: 100%;
+  height: 500px;
+  margin: auto;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+
+image-ctrlr>.image-download {
+  border-radius: 15px;
+  border: 2px solid var(--accent-1);
+  background-color: var(--foreground);
+  transition: 1s;
+}
+
+image-ctrlr>.image-download svg {
+  fill: var(--accent-1);
+  transition: .5s;
+}
+
+image-ctrlr>.image-download:hover svg {
+  fill: var(--accent-2);
+}
+
+image-ctrlr>.image-download:hover {
+  border-color: var(--accent-2);
+}
+
+image-ctrlr::after {
+  background-color: #0008;
+  color: var(--accent-1);
+}
+
+/* VIDEO */
+
 section video{
   display: block;
-  width: 500px;
+  width: 100%;
   margin: auto;
   border-radius: 15px;
   margin-bottom: 10px;
 }
 
+/* AUDIO */
+
 section audio{
   display: block;
-  width: 500px;
+  width: 100%;
   height: 25px;
   margin: auto;
   margin-bottom: 10px;
 }
+
+/* FILE DOWNLOADER */
 
 section file-downloader {
   display: block;
@@ -101,6 +147,14 @@ section file-downloader::after {
   border-radius: 25px;
 }
 
+section file-downloader::before {
+  content: "";
+  height: 50px;
+  wi
+}
+
+/* SLIDER */
+
 section .slider {
   width: 100%;
   overflow-x: auto;
@@ -110,9 +164,17 @@ section .slider {
 
 section .slider>*{
   display: inline-block !important;
+  height: 500px;
 }
 
 @media screen and (max-width: 690px) {
+  section image-ctrlr {
+    width: 100%;
+    height: 500px;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
   section video{
     width: 100%;
   }
