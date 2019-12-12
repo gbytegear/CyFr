@@ -2,10 +2,10 @@ section>h1:first-child {
   width: 100%;
   color: var(--accent-1);
   text-align: center;
-  font-size: 2em;
+  font-size: 2.5em;
   font-weight: 900;
-  
-  border-bottom: 3px solid var(--accent-1);
+  margin-top: 0;
+  border-bottom: 5px solid var(--accent-1);
 }
 
 section>h2 {
@@ -67,30 +67,48 @@ section audio{
   height: 25px;
   margin: auto;
   margin-bottom: 10px;
-  /* background-color: var(--background); */
 }
 
 section file-downloader {
   display: block;
-  width: 50px;
+  position: relative;
+  width: 90px;
   height: 50px;
   border-radius: 25px;
 
   box-sizing: border-box;
   padding: 10px;
+  padding-right: 50px;
 
   background-color: var(--accent-1);
   margin: auto;
 }
 
-selector .slider {
+section file-downloader::after {
+  content: attr(size);
+  display: block;
+  position: absolute;
+  height: 50px;
+  line-height: 46px;
+  min-width: 50px;
+  box-sizing: border-box;
+  padding-left: 1em;
+  padding-right: 1em;
+  border: 2px solid var(--accent-1);
+  left: 45px;
+  top: 0;
+  background-color: var(--background);
+  border-radius: 25px;
+}
+
+section .slider {
   width: 100%;
   overflow-x: auto;
   overflow-y: hidden;
   white-space: nowrap;
 }
 
-selector .slider>*{
+section .slider>*{
   display: inline-block !important;
 }
 
