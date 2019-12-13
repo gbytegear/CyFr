@@ -150,7 +150,7 @@ section file-downloader::after {
 section file-downloader::before {
   content: "";
   height: 50px;
-  wi
+  /* wi */
 }
 
 /* SLIDER */
