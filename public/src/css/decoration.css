@@ -5,6 +5,7 @@ button.circle-button {
     border-radius: 25px;
     border: 2px solid var(--accent-1);
     background-color: var(--accent-1);
+    box-shadow: 0 0 2px 5px var(--background);
 
     padding: 0;
 

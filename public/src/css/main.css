@@ -4,10 +4,11 @@
 
 :root {
     --background: #000;
-    --foreground: #0e1822;
+    --foreground: #100f16;
     --accent-0: #fff;
-    --accent-1: #2196F3;
-    --accent-2: #FF5722;
+    --accent-1: #FF5722;
+    --accent-2: #2196F3;
+    
     --accent-3: #52526e;
     --text-color: #a0a0af;
     --list-color-1: #F44336;
