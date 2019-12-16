@@ -1,6 +1,7 @@
 
 ::selection {
-  color: var(--accent-2);
+  color: var(--accent-1);
+  background-color: #0004;
 }
 
 /* HEADER */
@@ -117,6 +118,7 @@ section image-ctrlr {
   margin: auto;
   border-radius: 20px;
   margin-bottom: 10px;
+  box-shadow: 0 5px 50px var(--foreground) inset;
 }
 
 image-ctrlr>.image-download {

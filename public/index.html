@@ -4,64 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <meta name="theme-color" content="#100f16" />
+  <meta name="theme-color" content="#1b1d27" />
     <link rel="stylesheet" href="./src/css/main.css">
     <title>Main</title>
 </head>
 <body>
 
 
+<svg viewBox="0 24 150 28"
+    class="background-animation"
+    xmlns="http://www.w3.org/2000/svg"
+    xmlns:xlink="http://www.w3.org/1999/xlink"
+    preserveAspectRatio="none">
+    <defs>
+        <path id="gentle-wave"
+        d="M-160 44c30 0 
+           58-18 88-18s
+           58 18 88 18 
+           58-18 88-18 
+           58 18 88 18
+           v44h-352z" />
+         </defs>
+         <g class="parallax">
+          <use xlink:href="#gentle-wave" x="50" y="0" fill="#FFF176"/>
+          <use xlink:href="#gentle-wave" x="50" y="3" fill="#FBC02D"/>
+          <use xlink:href="#gentle-wave" x="50" y="6" fill="#F57F17"/>  
+         </g>
+</svg>
+
 <!-- CONTENT -->
     <article>
 	  <section>
         <h1>Test post</h1>
         <!-- Left -->
-        <h1>Left:</h1>
+        <h1>[h1]Left:</h1>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur laoreet sodales pellentesque. Nunc nunc orci, viverra sit amet diam ac, porta imperdiet quam. Aliquam sodales, dui eu posuere tristique, tortor ex accumsan erat, egestas gravida nulla risus a ligula. Mauris vel enim sit amet nibh mollis posuere ac id nibh. Donec ultricies dapibus volutpat. Ut mattis elit ut eros vulputate, vitae blandit risus finibus. Cras ligula felis, dictum sed nisl vitae, porta auctor sapien. Sed non hendrerit metus. Aliquam nec commodo orci, in sollicitudin nisl. Pellentesque dictum convallis erat, ut eleifend urna imperdiet at. Aliquam elementum sem vitae nisl eleifend fringilla quis nec orci. Ut et nulla sit amet nibh molestie consequat eget ac arcu. Sed tempor, nisl eu eleifend faucibus, turpis urna vulputate nibh, vitae commodo justo nunc egestas ligula. Integer et metus eu enim posuere condimentum. Fusce et tortor ornare, porta tellus non, sollicitudin nisl.</p>
-        <h2>Center:</h2>
+        <h2>[h2]Center:</h2>
         <p class="paragraph-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur laoreet sodales pellentesque. Nunc nunc orci, viverra sit amet diam ac, porta imperdiet quam. Aliquam sodales, dui eu posuere tristique, tortor ex accumsan erat, egestas gravida nulla risus a ligula. Mauris vel enim sit amet nibh mollis posuere ac id nibh. Donec ultricies dapibus volutpat. Ut mattis elit ut eros vulputate, vitae blandit risus finibus. Cras ligula felis, dictum sed nisl vitae, porta auctor sapien. Sed non hendrerit metus. Aliquam nec commodo orci, in sollicitudin nisl. Pellentesque dictum convallis erat, ut eleifend urna imperdiet at. Aliquam elementum sem vitae nisl eleifend fringilla quis nec orci. Ut et nulla sit amet nibh molestie consequat eget ac arcu. Sed tempor, nisl eu eleifend faucibus, turpis urna vulputate nibh, vitae commodo justo nunc egestas ligula. Integer et metus eu enim posuere condimentum. Fusce et tortor ornare, porta tellus non, sollicitudin nisl.</p>
-        <h3>Right:</h3>
+        <h3>[h3]Right:</h3>
         <p class="paragraph-right">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur laoreet sodales pellentesque. Nunc nunc orci, viverra sit amet diam ac, porta imperdiet quam. Aliquam sodales, dui eu posuere tristique, tortor ex accumsan erat, egestas gravida nulla risus a ligula. Mauris vel enim sit amet nibh mollis posuere ac id nibh. Donec ultricies dapibus volutpat. Ut mattis elit ut eros vulputate, vitae blandit risus finibus. Cras ligula felis, dictum sed nisl vitae, porta auctor sapien. Sed non hendrerit metus. Aliquam nec commodo orci, in sollicitudin nisl. Pellentesque dictum convallis erat, ut eleifend urna imperdiet at. Aliquam elementum sem vitae nisl eleifend fringilla quis nec orci. Ut et nulla sit amet nibh molestie consequat eget ac arcu. Sed tempor, nisl eu eleifend faucibus, turpis urna vulputate nibh, vitae commodo justo nunc egestas ligula. Integer et metus eu enim posuere condimentum. Fusce et tortor ornare, porta tellus non, sollicitudin nisl.</p>
-        <h3>Justify:</h3>
+        <h2>[h2]Justify:</h2>
         <p class="paragraph-justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur laoreet sodales pellentesque. Nunc nunc orci, viverra sit amet diam ac, porta imperdiet quam. Aliquam sodales, dui eu posuere tristique, tortor ex accumsan erat, egestas gravida nulla risus a ligula. Mauris vel enim sit amet nibh mollis posuere ac id nibh. Donec ultricies dapibus volutpat. Ut mattis elit ut eros vulputate, vitae blandit risus finibus. Cras ligula felis, dictum sed nisl vitae, porta auctor sapien. Sed non hendrerit metus. Aliquam nec commodo orci, in sollicitudin nisl. Pellentesque dictum convallis erat, ut eleifend urna imperdiet at. Aliquam elementum sem vitae nisl eleifend fringilla quis nec orci. Ut et nulla sit amet nibh molestie consequat eget ac arcu. Sed tempor, nisl eu eleifend faucibus, turpis urna vulputate nibh, vitae commodo justo nunc egestas ligula. Integer et metus eu enim posuere condimentum. Fusce et tortor ornare, porta tellus non, sollicitudin nisl.</p>
-        <h2>Image:</h2>
+        <h1>[h1]Image:</h1>
         <image-ctrlr src="./src/img/i.webp"></image-ctrlr>
 	  </section>
 	  
-	  <section></section>
+	  <!-- <section></section> -->
     </article>
-    <button class="circle-button" id="zen_mode_switch">Z</button>
+    <button class="circle-button" id="zen_mode_switch">R</button>
 
 
 
     
 <!-- EDITOR -->
     <div class="post-editor">
-	  <input type="text" id="editor_main_header"/>
-	  <div class="editor-blocks"></div>
-	  <div>
-	  <button id="editor_add_block">+</button>
-	    <div class="type-wrapper">
-            <br/>Title:<br/>
-            <button id="editor_title_first">First</button>
-		    <button id="editor_title_second">Second</button>
-		    <button id="editor_title_third">Third</button>
-            <br/>Paragraph:<br/>
-		    <button id="editor_p_left">Left</button>
-		    <button id="editor_p_center">Center</button>
-		    <button id="editor_p_right">Right</button>
-		    <button id="editor_p_justify">justify</button>
-            <br/>Files:<br/>
-            <button>Image</button>
-            <button>Audio</button>
-            <button>Video</button>
-            <button>Slider</button>
-            <button>Document</button>
-            <br/>Other:<br/>
-            <button>Graphic</button>
-            <button>Link</button>
-	    </div>
-	  </div>
+        <post-editor></post-editor>
     </div>
     <button class="circle-button" id="send_post_button">&lt;</button>
     <button class="circle-button" id="open_editor_button">
@@ -96,9 +93,6 @@
 <!-- FOOTER -->
     <footer>
         <div class="tool-menu">
-            <button class="bottom">Share</button>
-		    <button class="bottom">Save</button>
-            <button class="bottom">Comment</button>
             <button class="bottom" id="open_tool_menu_button">Options</button>
         </div>
         <div class="content">
@@ -108,12 +102,6 @@
         </div>
     </footer>
 
-
-    <script type="text/javascript" src="./src/js/elements/jscss.js"></script>
-    <script type="text/javascript" src="./src/js/elements/style.js"></script>
-    <script type="text/javascript" src="./src/js/elements/image.js"></script>
-    <script type="text/javascript" src="./src/js/elements/filedowload.js"></script>
-    <script type="text/javascript" src="./src/js/editor_controller.js"></script>
-    <script type="text/javascript" src="./src/js/main.js"></script>
+    <script type="module" src="./src/js/main.js"></script>
 </body>
 </html>

@@ -1,5 +1,4 @@
-try{
-
+//try{
 const editor = new (class {
 	constructor (){
 		
@@ -17,4 +16,4 @@ const addLineBlock = (props, name)=>{
 };
 
 editor_title_first.addEventListener('click', ()=>addLineBlock({},'h1'));
-}catch(e){alert(e);}
+// }catch(e){alert(e);}

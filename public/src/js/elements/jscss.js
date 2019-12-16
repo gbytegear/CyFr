@@ -116,6 +116,9 @@ const Color = class {
     }
 }
 
+window.jscss = jscss;
+window.Color = Color;
+
 /*
 {
     media : {

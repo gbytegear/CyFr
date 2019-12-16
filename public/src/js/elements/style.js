@@ -43,3 +43,18 @@ jscss.add("image-ctrlr::after", {
 jscss.add("image-ctrlr:hover::after", {
     bottom: 0,
 });
+
+/* POST-EDITOR */
+
+jscss.add("post-editor", {
+    display: "block",
+    width: "100%",
+    height: "100%",
+    overflow_x: "hidden",
+    overflow_y: "auto"
+});
+
+jscss.add(".post-editor .blocks>*", {
+    display: "block",
+    width: "100%"
+});
