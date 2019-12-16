@@ -38,18 +38,19 @@
 <!-- EDITOR -->
     <div class="post-editor">
 	  <input type="text" id="editor_main_header"/>
+	  <div class="editor-blocks"></div>
 	  <div>
 	  <button id="editor_add_block">+</button>
 	    <div class="type-wrapper">
             <br/>Title:<br/>
-            <button>First</button>
-            <button>Second</button>
-            <button>Third</button>
+            <button id="editor_title_first">First</button>
+		    <button id="editor_title_second">Second</button>
+		    <button id="editor_title_third">Third</button>
             <br/>Paragraph:<br/>
-            <button>Left</button>
-            <button>Center</button>
-            <button>Right</button>
-            <button>justify</button>
+		    <button id="editor_p_left">Left</button>
+		    <button id="editor_p_center">Center</button>
+		    <button id="editor_p_right">Right</button>
+		    <button id="editor_p_justify">justify</button>
             <br/>Files:<br/>
             <button>Image</button>
             <button>Audio</button>
@@ -112,6 +113,7 @@
     <script type="text/javascript" src="./src/js/elements/style.js"></script>
     <script type="text/javascript" src="./src/js/elements/image.js"></script>
     <script type="text/javascript" src="./src/js/elements/filedowload.js"></script>
+    <script type="text/javascript" src="./src/js/editor_controller.js"></script>
     <script type="text/javascript" src="./src/js/main.js"></script>
 </body>
 </html>

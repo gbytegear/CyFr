@@ -1,6 +1,7 @@
 @import url(./decoration.css);
 @import url(./elements.css);
 @import url(./content.css);
+@import url(./editor.css);
 
 :root {
     --background: #000;

@@ -57,13 +57,16 @@ button.bottom::before {
 
 
 #editor_main_header {
-  width: calc(100% - 20px);
-  margin-left: 10px;
-  font-size: 2em;
+  width: 100%;
+  color: var(--accent-1);
+  font-size: 2.5em;
+  font-weight: 900;
   text-align: center;
-  background-color: transparent;
+  background-color: var(--foreground);
   border: none;
-  border-bottom: 2px solid var(--accent-1);
+  border-bottom: 5px solid var(--accent-1);
+  box-shadow: 0 10px 5px -5px var(--background),
+  0 35px 25px -20px var(--background);
   outline: none;
   color: var(--accent-1);
 }
