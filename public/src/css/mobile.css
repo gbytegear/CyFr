@@ -1,0 +1,72 @@
+@media only screen and (max-width: 690px) {
+    :root {
+        --header-size: 40px;
+    }
+
+    #resizer {
+        display: none;
+    }
+
+    nav {
+        left: auto;
+        right: -75vw;
+
+        height: 100vh;
+        width: 75vw;
+        margin: 0;
+        
+        border-radius: 0;
+        opacity: 1;
+        box-shadow: 0 0 0 0 black;
+
+        transition: right .5s, box-shadow .2s;
+    }
+
+    :root.open-menu nav {
+        right: 0;
+        box-shadow: 0 5px 10px 5px black;
+    }
+
+    article {
+        left: 0;
+
+        box-sizing: border-box;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+
+        border-radius: 0;
+    }
+
+    #open_menu {
+        display: block;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+
+        border: none;
+        background-color: var(--accent-open);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        outline: none;
+    }
+
+    #close_menu {
+        display: block;
+        position: absolute;
+        top: 5px;
+        right: 5px;
+
+        border: none;
+        background-color: var(--accent-close);
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        outline: none;
+    }
+    
+    #close_menu {
+        display: block;
+    }
+}

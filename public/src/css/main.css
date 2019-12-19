@@ -1,260 +1,139 @@
-@import url(./static.css);
-@import url(./stdelements.css);
-@import url(./content.css);
-@import url(./editor.css);
-
-@import url(./anim.css);
-
 :root {
-    --background: #000;
-    --foreground: #1b1d27;
-    --accent-0: #fff;
-    --accent-1: #94cc41;
-    --accent-2: #2196F3;
-    
-    --accent-3: #52526e;
-    --text-color: #a0a0af;
-    --list-color-1: #F44336;
-    --list-color-2: #E91E63;
-    --list-color-3: #9C27B0;
-    --list-color-4: #3F51B5;
-    --list-color-5: #009688;
-    --list-color-6: #4CAF50;
-    --list-color-7: #FFC107;
-    --list-color-8: #FF5722;
-    --list-color-9: #795548;
-    --main-block-width: 700px;
-
-    --std-texture: url(../img/decoration/memphis-mini-dark.png)
+    --header-size: 25px;
 }
-
-body {
-    background-color: var(--background);
-    background-image: var(--std-texture);
-    margin: 0;
-    font-family: Segoe UI;
-    color: var(--text-color);
-    overflow: hidden;
-}
-
-.content {
-    width: 100%; height: 100%;
-    transition: all .5s ease .5s;
-}
-
-
-
-
-
-
-
-
-/* HEADER */
-
-header {
-    position: fixed;
-    left: 0;
-    top: -100vh;
-    width: 100vw;
-    height: 100vh;
-    padding-bottom: 50px;
-    background-color: var(--foreground);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 0 100%);
-    transition: all .5s ease 0s, background .5s ease .5s;
-}
-
-/* states */
-
-.header-open header {
-    top: 0;
-    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 200px), 50% 100%, 0 calc(100% - 200px));
-    padding-bottom: 250px;
-    background-color: var(--background);
-    background-image: var(--std-texture);
-}
-
-.footer-open header, .zen-mode header {
-    padding-bottom: 0;
-    opacity: 0;
-    visibility: hidden;
-}
-
-body:not(.header-open) header>.content {
-    opacity: 0;
-    visibility: hidden;
-}
-
-
-/* HEADER>NAV */
 
 nav {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100vw;
-    height: 50px;
-
-    display: flex;
-    justify-content: space-around;
-
-    transition: 1s;
-}
-
-/* states */
-
-.header-open nav{
-    bottom: 50px;
-    opacity: 0;
-    visibility: hidden;
-}
-
-
-/* HEADER>.CONTENT */
-
-header .top-menu {
-    width: 100vw; height: 50px;
-	background-color: var(--foreground);
-
-    display: flex;
-    justify-content: space-around;
-}
-
-
-
-
-
-
-
-
-/* FOOTER */
-
-footer {
     position: fixed;
-    left: 0;
-    bottom: -100vh;
-    width: 100vw;
-    height: 100vh;
-    padding-top: 50px;
-    background-color: var(--foreground);
-    clip-path: polygon(0 0, 50% 0, 100% 0, 100% 100%, 0 100%);
-    transition: all .5s ease 0s, background .5s ease .5s;
-}
-
-/* states */
-
-.header-open footer, .zen-mode footer {
-    padding-top: 0;
-    opacity: 0;
-    visibility: hidden;
-}
-
-.footer-open footer {
-    bottom: 0;
-    clip-path: polygon(0 200px, 50% 0, 100% 200px, 100% 100%, 0 100%);
-    padding-top: 250px;
-    background-color: var(--background);
-    background-image: var(--std-texture);
-}
-
-body:not(.footer-open) footer>.content {
-    opacity: 0;
-    visibility: hidden;
-}
-
-/* FOOTER>.tool-menu */
-
-.tool-menu {
-    position: absolute;
-    left: 0;
     top: 0;
-    width: 100vw;
+    left: 0;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    box-sizing: border-box;
+    width: var(--nav);
+    height: calc(100vh - 10px);
+    padding-top: var(--header-size);
+    margin: 5px;
+    
+    background-color: var(--fg);
+    border-radius: 25px;
+
+    opacity: calc(1*var(--show-nav));
+
+    box-shadow: 0 5px 10px 5px black;
+    
+    transition: opacity 1s;
+}
+
+nav>button:not(#close_menu) {
+    position: relative;
+
+    width: 100%;
     height: 50px;
+    line-height: 50px;
 
-    display: flex;
-    justify-content: space-around;
+    font-size: 25px;
+    
+    border: none;
+    color: var(--accent);
+    outline: none;
+
+    background-color: transparent;
+
+    cursor: pointer;
+    transition: 
+    box-shadow 1s,
+    color .2s,
+    text-shadow .2s;
 }
 
-footer .menu {
-    width: 100vw; height: 50px;
-	background-color: var(--foreground);
-
-    display: flex;
-    justify-content: space-around;
-	
-	position: absolute;
-	left:0; bottom: 0;
+nav>button:focus:not(#close_menu) {
+    color: var(--bg);
 }
 
-
-
-
-
-
-
-
-
-/*Content*/
-
-article {
-  position: fixed;
-  left: 0;top: 0;
-  overflow-y: auto;
-  overflow-x: hidden;
-  
-  width: 100vw;
-  height: 100vh;
-  
-  box-sizing: border-box;
-  padding-top: 50px;
-  padding-bottom: 50px;
-  
-  display: block;
-  padding-left: calc(50vw - var(--main-block-width)/2);
-  padding-right: calc(50vw - var(--main-block-width)/2);
-
-  transition: 1s;
+nav>button:active:not(#close_menu) {
+    color: var(--accent);
+    text-shadow: 
+    0 0 5px var(--accent),
+    0 0 10px var(--accent);
 }
 
-.zen-mode article {
-  padding: 0;
+#resizer {
+    position: fixed;
+    top: 0;
+    left: calc(var(--nav) - 2px);
+
+    box-sizing: content-box;
+    width: 0;
+    height: calc(100vh - 50px);
+    margin-top: 25px;
+    margin-left: 8px;
+
+    border: calc(8px - (4px * var(--show-nav))) solid transparent;
+
+    padding: 0;
+
+    background-color: transparent;
+    outline: 0;
+
+    cursor: e-resize;
+
+    transition: border-color .5s;
 }
 
-.header-open article, .footer-open article{
-    opacity: 0;
-    visibility: hidden;
+#resizer:hover {
+    border-color: white;
 }
 
-section {
-  width: calc(100% - 20px);
-  min-height: 200px;
-  margin: 10px;
-  
-  border-radius: 5px;
-  background-color: var(--foreground);
-
-  box-sizing: border-box;
-  padding-left: 5px;
-  padding-right: 5px;
-  
-  overflow-x: hidden;
-  overflow-y: auto;
-  transition: 1s;
+#resizer:active {
+    border-color: #fff2;
 }
 
-.zen-mode section {
-    padding-left: calc(50vw - var(--main-block-width)/2);
-    padding-right: calc(50vw - var(--main-block-width)/2);
+article{
+    position: fixed;
+    top: 0;
+    left: calc(var(--nav) + 10px);
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    box-sizing: border-box;
+    width: calc(100vw - var(--nav) - 20px);
+    height: calc(100vh - 10px);
+    padding-top: var(--header-size);
+    margin: 5px;
+
+    background-color: var(--fg);
+    border-radius: 25px;
+
+    box-shadow: 0 5px 10px 5px black;
 }
 
+article>h1.title,
+nav>h1.title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+    width: 100%;
+    height: var(--header-size);
+    line-height: var(--header-size);
+    margin: 0;
 
-@media screen and (max-width: var(--main-block-width)) {
-    article {
-        margin: 0;
-		width: 100vw;
-    }
+    text-align: center;
 
-    .zen-mode section {
-        padding-left: 5px;
-        padding-right: 5px;
-    }
+    background-color: var(--bg);
+}
+
+h1{
+    color: var(--txt-0);
+}
+
+#open_menu {
+    display: none;
+}
+
+#close_menu {
+    display: none;
 }

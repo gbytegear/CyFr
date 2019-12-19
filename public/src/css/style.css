@@ -1,0 +1,54 @@
+@import url(./main.css);
+@import url(./mobile.css);
+
+:root {
+    --bg: #1d2935;
+    --fg: #0d161f;
+    --nav: 25%;
+    --show-nav: 1;
+    --txt-0: #fff;
+    --txt-1: #aaa;
+
+    --accent-open: #16d830;
+    --accent-close: #c42222;
+
+    --accent-1:#F44336;
+    --accent-2:#E91E63;
+    --accent-3:#9C27B0;
+    --accent-4:#673AB7;
+    --accent-5:#3F51B5;
+    --accent-6:#2196F3;
+    --accent-7:#03A9F4;
+    --accent-8:#00BCD4;
+    --accent-9:#009688;
+    --accent-10:#4CAF50;
+    --accent-11:#8BC34A;
+    --accent-12:#CDDC39;
+    --accent-13:#FFEB3B;
+    --accent-14:#FFC107;
+    --accent-15:#FF9800;
+    --accent-16:#FF5722;
+}
+
+.accent:nth-child(16n-15){--accent:var(--accent-1)}
+.accent:nth-child(16n-14){--accent:var(--accent-2)}
+.accent:nth-child(16n-13){--accent:var(--accent-3)}
+.accent:nth-child(16n-12){--accent:var(--accent-4)}
+.accent:nth-child(16n-11){--accent:var(--accent-5)}
+.accent:nth-child(16n-10){--accent:var(--accent-6)}
+.accent:nth-child(16n-9){--accent:var(--accent-7)}
+.accent:nth-child(16n-8){--accent:var(--accent-8)}
+.accent:nth-child(16n-7){--accent:var(--accent-9)}
+.accent:nth-child(16n-6){--accent:var(--accent-10)}
+.accent:nth-child(16n-5){--accent:var(--accent-11)}
+.accent:nth-child(16n-4){--accent:var(--accent-12)}
+.accent:nth-child(16n-3){--accent:var(--accent-13)}
+.accent:nth-child(16n-2){--accent:var(--accent-14)}
+.accent:nth-child(16n-1){--accent:var(--accent-15)}
+.accent:nth-child(16n){--accent:var(--accent-16)}
+
+body {
+    background-color: var(--bg);
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
