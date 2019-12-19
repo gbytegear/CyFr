@@ -6,23 +6,20 @@ nav {
     position: fixed;
     top: 0;
     left: 0;
-
     overflow-x: hidden;
     overflow-y: auto;
-
     box-sizing: border-box;
     width: var(--nav);
     height: calc(100vh - 10px);
     padding-top: var(--header-size);
+    padding-bottom: 100px;
     margin: 5px;
-    
     background-color: var(--fg);
-    border-radius: 25px;
-
+    border-radius: 25px 25px 0 0;
     opacity: calc(1*var(--show-nav));
-
-    box-shadow: 0 5px 10px 5px black;
-    
+    box-shadow: 
+    0 5px 20px 0 black,
+    0 5px 10px 0 black;
     transition: opacity 1s;
 }
 
@@ -53,10 +50,8 @@ nav>button:focus:not(#close_menu) {
 }
 
 nav>button:active:not(#close_menu) {
-    color: var(--accent);
-    text-shadow: 
-    0 0 5px var(--accent),
-    0 0 10px var(--accent);
+    background-color: var(--accent);
+    color: var(--fg);
 }
 
 #resizer {
@@ -94,20 +89,18 @@ article{
     position: fixed;
     top: 0;
     left: calc(var(--nav) + 10px);
-
     overflow-x: hidden;
     overflow-y: auto;
-
     box-sizing: border-box;
     width: calc(100vw - var(--nav) - 20px);
     height: calc(100vh - 10px);
     padding-top: var(--header-size);
     margin: 5px;
-
     background-color: var(--fg);
-    border-radius: 25px;
-
-    box-shadow: 0 5px 10px 5px black;
+    border-radius: 25px 25px 0 0;
+    box-shadow: 
+    0 5px 20px 0 black,
+    0 5px 10px 0 black;
 }
 
 article>h1.title,
@@ -123,11 +116,13 @@ nav>h1.title {
 
     text-align: center;
 
-    background-color: var(--bg);
-}
-
-h1{
     color: var(--txt-0);
+    background-color: var(--bg);
+
+    box-shadow:
+    0 0 5px 0 black,
+    0 0 10px 0 black,
+    0 0 20px 0 black;
 }
 
 #open_menu {

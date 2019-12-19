@@ -42,10 +42,18 @@ resizer.addEventListener('dblclick', ()=> {
     .setProperty('--show-nav', null);
 });
 
-open_menu.addEventListener('click', ()=>{
-    document.documentElement.classList.add('open-menu');
-});
+const article = document.querySelector('article');
 
-close_menu.addEventListener('click', ()=>{
+const openMenu = () => {
+    document.documentElement.classList.add('open-menu');
+    setTimeout(()=>article.addEventListener('click', closeMenu),1)
+};
+
+const closeMenu = ()=>{
     document.documentElement.classList.remove('open-menu');
-});
+    article.removeEventListener('click', closeMenu);
+}
+
+open_menu.addEventListener('click', openMenu);
+
+close_menu.addEventListener('click', closeMenu);

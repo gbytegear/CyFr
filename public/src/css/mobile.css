@@ -9,7 +9,7 @@
 
     nav {
         left: auto;
-        right: -75vw;
+        right: calc(-75vw - 40px);
 
         height: 100vh;
         width: 75vw;
@@ -17,20 +17,36 @@
         
         border-radius: 0;
         opacity: 1;
-        box-shadow: 0 0 0 0 black;
+        box-shadow:
+        0 0 0 0 var(--accent-1),
+        0 0 0 0 var(--accent-6),
+        0 0 0 0 var( --accent-12),
+        -40px 0 20px -20px #0000,
+        -25vw 0 0 0 #0000;;
 
-        transition: right .5s, box-shadow .2s;
+        transition: right .5s ease .2s, 
+        box-shadow .2s;
     }
 
     :root.open-menu nav {
         right: 0;
-        box-shadow: 0 5px 10px 5px black;
+        box-shadow:
+        -10px 0 0 -5px var(--accent-1),
+        -20px 0 0 -10px var(--accent-6),
+        -30px 0 0 -15px var( --accent-12),
+        -40px 0 20px -20px #000f,
+        -25vw 0 0 0 #0008;
+
+        transition: right .5s, 
+        box-shadow .2s ease .5s;
     }
 
     article {
         left: 0;
 
         box-sizing: border-box;
+        padding-left: 0;
+        padding-right: 0;
         width: 100vw;
         height: 100vh;
         margin: 0;

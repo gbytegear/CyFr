@@ -1,5 +1,9 @@
+@import url(./elem.css);
 @import url(./main.css);
 @import url(./mobile.css);
+
+@import url(./content.css);
+@import url(./content-mobile.css);
 
 :root {
     --bg: #1d2935;
@@ -7,7 +11,7 @@
     --nav: 25%;
     --show-nav: 1;
     --txt-0: #fff;
-    --txt-1: #aaa;
+    --txt-1: #999;
 
     --accent-open: #16d830;
     --accent-close: #c42222;
@@ -48,7 +52,12 @@
 .accent:nth-child(16n){--accent:var(--accent-16)}
 
 body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
     background-color: var(--bg);
+    color: var(--txt-1);
 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
