@@ -10,13 +10,11 @@
 .content.page section {
     width: 690px;
     margin: auto;
-
     margin-top: -90px;
-	padding-top: 100px;
-	padding-bottom: 100px;
-
+    padding-top: 100px;
+    padding-bottom: 100px;
     background-color: var(--bg);
-	clip-path:polygon(0 100px, 100% 0, 100% calc(100% - 100px), 0 100%);
+    clip-path:polygon(0 100px, 100% 0, 100% calc(100% - 100px), 0 100%);
 }
 
 .content.page section:first-child {
