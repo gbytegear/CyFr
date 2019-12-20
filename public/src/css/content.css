@@ -1,8 +1,15 @@
 .content {
+    display: inline-block;
     width: 100%;
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
+    white-space: normal;
+}
+
+article > .tabs + .content {
+    margin-left: calc(-100%*var(--selected-tab));
+    transition: margin-left 1s;
 }
 
 /* PAGE */

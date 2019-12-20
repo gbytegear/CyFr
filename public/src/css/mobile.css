@@ -40,17 +40,16 @@
 
     article {
         left: 0;
-
         box-sizing: border-box;
         padding-left: 0;
         padding-right: 0;
         width: 100vw;
         height: 100vh;
         margin: 0;
-
         border-radius: 0;
-		filter: blur(0);
-		transition: filter .5s ease .2s;
+        filter: blur(0);
+        transition: filter .5s ease .2s;
+        padding-left: -100%;
     }
 	
 	:root.open-menu article{

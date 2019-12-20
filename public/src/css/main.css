@@ -1,5 +1,6 @@
 :root {
     --header-size: 25px;
+    --selected-tab: 0;
 }
 
 nav {
@@ -101,6 +102,8 @@ article{
     box-shadow: 
     0 5px 20px 0 black,
     0 5px 10px 0 black;
+
+    white-space: nowrap;
 }
 
 .tabs {

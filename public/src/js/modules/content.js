@@ -1,5 +1,4 @@
-try {
-
+// try { //mobile debug
 const content_controller = new class extends Array {
     constructor(){
         super();
@@ -16,7 +15,7 @@ const content_controller = new class extends Array {
         content.className = `content ${type}`;
         
         this.tabs.appendChild(tab);
-        this.contents.appendChilxd(content);
+        this.contents.appendChild(content);
         
         this.push({tab, content});
     }
@@ -25,9 +24,17 @@ const content_controller = new class extends Array {
         
     }
     
-    close(){}
+    close(index){
+        this[index].tab.remove();
+        this[index].content.remove();
+    }
+}
+
+content_controller[0] = {
+    tab: document.querySelector('.tabs>button:nth-child(1)'),
+    content: document.querySelector('article > .tabs + .content')
 }
 
 window.content_controller = content_controller;
 
-}catch(e){alert(e);}
+// }catch(e){alert(e);} //mobile debug
