@@ -27,13 +27,20 @@ const content_controller = new class extends Array {
     close(index){
         this[index].tab.remove();
         this[index].content.remove();
+        this.splice(index, 1);
+    }
+    
+    getContent () {
+        const xhr = new XmlHttpRequest();
     }
 }
 
+//FIX THIS FUCKING SHIT: CRUTCH FOR TESTING!!!
 content_controller[0] = {
     tab: document.querySelector('.tabs>button:nth-child(1)'),
-    content: document.querySelector('article > .tabs + .content')
+    content: document.querySelector('.content-wrapper > .content:first-child')
 }
+//END OF CRUTCH
 
 window.content_controller = content_controller;
 
