@@ -5,6 +5,21 @@
 @import url(./content.css);
 @import url(./content-mobile.css);
 
+@font-face {
+    font-family: 'Determination';
+    src: url(../etc/fnt/Determination.ttf) format("opentype");
+}
+
+@font-face {
+    font-family: 'PersonalFoxesing';
+    src: url(../etc/fnt/PersonalFoxesing.ttf) format("opentype");
+}
+
+@font-face {
+    font-family: 'LightPixel';
+    src: url(../etc/fnt/LightPixel.ttf) format("opentype");
+}
+
 :root {
     /* --fg: white; */
     --bg: #1d2935;
@@ -61,4 +76,10 @@ body {
     color: var(--txt-1);
 
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Determination;
+}
+
+button {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: LightPixel;
 }

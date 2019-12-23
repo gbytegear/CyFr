@@ -12,7 +12,7 @@ nav {
     box-sizing: border-box;
     width: var(--nav);
     height: calc(100vh - 10px);
-    padding-top: var(--header-size);
+    padding-top: calc(var(--header-size) + 64px);
     padding-bottom: 100px;
     margin: 5px;
     background-color: var(--fg);
@@ -55,6 +55,20 @@ nav>button:active:not(#close_menu) {
     color: var(--fg);
 }
 
+nav::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: var(--header-size);
+    width: 100%;
+    height: 64px;
+    /* background-image: url(../etc/img/grafient.png); */
+    /* background-size: 64px 64px; */
+    background-color: var(--bg);
+    mask: url(../etc/img/bottom.svg);
+    -webkit-mask: url(../etc/img/bottom.svg) 0/16px auto;
+}
+
 #resizer {
     position: fixed;
     top: 0;
@@ -90,27 +104,14 @@ article{
     position: fixed;
     top: 0;
     left: calc(var(--nav) + 10px);
-    overflow-x: hidden;
-    overflow-y: auto;
+    overflow: hidden;
     box-sizing: border-box;
     width: calc(100vw - var(--nav) - 25px);
     height: calc(100vh - 10px);
     padding-top: calc(var(--header-size) + 35px);
     margin: 5px;
     background-color: var(--fg);
-
     white-space: nowrap;
-}
-
-article::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: calc(var(--header-size) + 35px);
-    width: 100%;
-    height: 64px;
-    background-image: url(../etc/img/grafient.png);
-    background-size: 64px 64px;
 }
 
 article>h1.title,
