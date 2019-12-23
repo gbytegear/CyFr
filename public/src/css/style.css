@@ -6,6 +6,7 @@
 @import url(./content-mobile.css);
 
 :root {
+    /* --fg: white; */
     --bg: #1d2935;
     --fg: #0d161f;
     --nav: 25%;
