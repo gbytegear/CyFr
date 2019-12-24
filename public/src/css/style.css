@@ -5,6 +5,8 @@
 @import url(./content.css);
 @import url(./content-mobile.css);
 
+@import url(./elements/modalwin.css);
+
 @font-face {
     font-family: 'AktivGroteskCorpMedium';
     src: url(../etc/fnt/AktivGroteskCorpM.ttf) format("opentype");

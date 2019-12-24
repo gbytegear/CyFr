@@ -47,7 +47,7 @@
 
 .tabs>button:active {
   background-color: var(--accent);
-  color: var(--fg);
+  color: var(--bg-1);
 }
 
 /* Contents */
@@ -78,6 +78,7 @@
     margin: auto;
     margin-top: 32px;
     background: var(--bg-1);
+    box-shadow: 0 10px 20px 0 #000, 0 5px 15px 0 #000;
 }
 
 .content.page section::before {
@@ -123,12 +124,49 @@
 .content.page section h4,
 .content.page section h5,
 .content.page section h6 {
+    position: relative;
     color: var(--bg-1);
     margin: 0;
+    margin-top: 10px;
+    margin-bottom: 10px;
     background-color: var(--accent);
     box-shadow: 0 3px 5px 0 #000, 0 2px 10px 0 #000;
     /* border-bottom: 1px solid var(--accent); */
     padding-left: 1em;
+}
+
+.content.page section h1::before,
+.content.page section h2::before,
+.content.page section h3::before,
+.content.page section h4::before,
+.content.page section h5::before,
+.content.page section h6::before {
+    position: absolute;
+    content: "";
+    right: 100%;
+    top: 10px;
+    width: 30px;
+    height: 100%;
+    background-color: var(--accent);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 50% 50%);
+    box-shadow: -15px 0 10px -10px #000 inset;
+}
+
+.content.page section h1::after,
+.content.page section h2::after,
+.content.page section h3::after,
+.content.page section h4::after,
+.content.page section h5::after,
+.content.page section h6::after {
+    position: absolute;
+    content: "";
+    left: 100%;
+    top: 10px;
+    width: 30px;
+    height: 100%;
+    background-color: var(--accent);
+    clip-path: polygon(0 0, 100% 0, 50% 50%, 100% 100%, 0 100%);
+    box-shadow: 15px 0 10px -10px #000 inset;
 }
 
 .content.page section h1 {border-width: 4px;}

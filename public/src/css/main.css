@@ -137,16 +137,14 @@ nav>h1.title {
     position: absolute;
     top: 0;
     left: 0;
-    
     width: 100%;
     height: var(--header-size);
     line-height: var(--header-size);
     margin: 0;
-
     text-align: center;
-
     color: var(--txt-0);
     background: var(--bg-1);
+    box-shadow: 0 15px 40px -10px #000, 0 15px 20px -5px #000;
 }
 
 #open_menu {

@@ -1,17 +1,28 @@
 import './modules/resizer.js';
 import './modules/content.js';
+import './modules/elements/modalwin.js';
 
 // try{ //mobile debug
 let last_tab = 0,
       current_tab = 0;
 
 const content_title = document.querySelector('article>.title');
+const modal_win = document.querySelector('modal-win');
 
 document.querySelector('nav').addEventListener('click', (e)=>{
     if(e.target.tagName == "NAV" || e.target.id == "close_menu")return;
-    switch (e.target.classList[0]) {
-        case "page": return content_controller.open('page', 'any-page');
-        case "groups"; return document.querySelector('modal-win').open();
+    switch (e.target.dataset.action) {
+        case "Page": 
+        content_controller.open('page', 'any-page');
+        return closeMenu();
+        case "Groups":
+        case "Messages":
+        case "Contacts":
+        case "Notifications":
+        case "Media":
+        case "Settings":
+        modal_win.open(e.target.dataset.action);
+        return closeMenu();
     }
 })
 
@@ -34,5 +45,22 @@ document.querySelector('article>.tabs').addEventListener('dblclick', e => {
     if(last_tab > 0)last_tab--;
     //TODO: add logic of delete current tab!!!
 }, false)
+
+const article = document.querySelector('article');
+
+const openMenu = () => {
+    document.documentElement.classList.add('open-menu');
+    setTimeout(()=>article.addEventListener('click', closeMenu),1)
+};
+
+const closeMenu = ()=>{
+    if(!document.documentElement.classList.contains('open-menu'))return;
+    document.documentElement.classList.remove('open-menu');
+    article.removeEventListener('click', closeMenu);
+}
+
+open_menu.addEventListener('click', openMenu);
+
+close_menu.addEventListener('click', closeMenu);
 
 // }catch(e){alert(e);} //mobile debug
