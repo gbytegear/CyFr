@@ -11,6 +11,7 @@ document.querySelector('nav').addEventListener('click', (e)=>{
     if(e.target.tagName == "NAV" || e.target.id == "close_menu")return;
     switch (e.target.classList[0]) {
         case "page": return content_controller.open('page', 'any-page');
+        case "groups"; return document.querySelector('modal-win').open();
     }
 })
 
