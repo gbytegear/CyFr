@@ -6,32 +6,25 @@
 @import url(./content-mobile.css);
 
 @font-face {
-    font-family: 'Determination';
-    src: url(../etc/fnt/Determination.ttf) format("opentype");
+    font-family: 'AktivGroteskCorpMedium';
+    src: url(../etc/fnt/AktivGroteskCorpM.ttf) format("opentype");
 }
 
 @font-face {
-    font-family: 'PersonalFoxesing';
-    src: url(../etc/fnt/PersonalFoxesing.ttf) format("opentype");
-}
-
-@font-face {
-    font-family: 'LightPixel';
-    src: url(../etc/fnt/LightPixel.ttf) format("opentype");
+    font-family: 'SoftLineExtra';
+    src: url(../etc/fnt/SoftLineExtra.ttf) format("opentype");
 }
 
 :root {
-    /* --fg: white; */
-    --bg: #1d2935;
-    --fg: #0d161f;
+    --bg-1: #1f2935;
+    --bg-2: #211319;
+    --bg-3: #000;
     --nav: 25%;
     --show-nav: 1;
     --txt-0: #fff;
     --txt-1: #999;
-
     --accent-open: #16d830;
     --accent-close: #c42222;
-
     --accent-1:#F44336;
     --accent-2:#E91E63;
     --accent-3:#9C27B0;
@@ -71,15 +64,17 @@ body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-
-    background-color: var(--bg);
+    background: var(--bg-1);
     color: var(--txt-1);
-
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-family: Determination;
+    font-family: SoftLineExtra;
 }
 
 button {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-family: LightPixel;
+    font-family: AktivGroteskCorpMedium;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: AktivGroteskCorpMedium;
 }

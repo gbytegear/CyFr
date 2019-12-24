@@ -29,6 +29,6 @@
      transform="translate(0,-292.76665)" />
   <path
      id="path34"
-     d="M 0,0 8,16 16,0 Z"
+     d="M 16,16 8,0 0,16 Z"
      style="fill:#000000" />
 </svg>

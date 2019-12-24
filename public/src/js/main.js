@@ -15,6 +15,7 @@ document.querySelector('nav').addEventListener('click', (e)=>{
 })
 
 document.querySelector('article>.tabs').addEventListener('click', e => {
+    if(e.target.classList.contains('tabs'))return;
     let index = [].indexOf.call(e.target.parentElement.children, e.target);
     if(current_tab == index) return;
     document.documentElement.style.setProperty('--selected-tab', index);

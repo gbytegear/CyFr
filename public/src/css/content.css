@@ -10,61 +10,39 @@
   white-space: nowrap;
   width: 100%;
   height: 30px;
-  background-color: var(--bg);
+  background: var(--bg-1);
+  box-shadow: 0 10px 5px 0 var(--bg-2), 0 10px 10px 0 var(--bg-2);
 }
+
 
 .tabs>button {
   display: inline-block;
   height: 100%;
-  font-size: 1em;
+  font-size: 1.5em;
+  font-weight: 900;
   color: var(--accent);
-  background-color: var(--fg);
+  background: var(--bg-2);
   border: none;
   outline: none;
   padding-left: 30px;
   padding-right: 30px;
   margin-left: -20px;
-  clip-path: polygon(0 0, 
-  calc(100% - 30px) 0,
-  calc(100% - 30px) 10px,
-  calc(100% - 20px) 10px,
-  calc(100% - 20px) 20px,
-  calc(100% - 10px) 20px,
-  calc(100% - 10px) 30px,
-   100% 100%, 
-   20px 100%,
-   20px calc(100% - 10px),
-   10px calc(100% - 10px),
-   10px calc(100% - 20px),
-   0 calc(100% - 20px));
+  clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 100%, 30px 100%);
 }
 
 .tabs>button:first-child {
     margin-right: -5px;
     margin-left: 5px;
-    clip-path: polygon(0 0,
-    calc(100% - 30px) 0,
-    calc(100% - 30px) 10px,
-    calc(100% - 20px) 10px,
-    calc(100% - 20px) 20px,
-    calc(100% - 10px) 20px,
-    calc(100% - 10px) 30px,
-    0 100%);
+    clip-path: polygon(0 10px, 10px 0, calc(100% - 30px) 0, 100% 100%, 0 100%);
 }
 
 .tabs>button:last-child {
-    clip-path: polygon(0 0, 100% 0, 100% 100%,
-    20px 100%,
-    20px calc(100% - 10px),
-    10px calc(100% - 10px),
-    10px calc(100% - 20px),
-    0 calc(100% - 20px)
-    );
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 30px 100%);
     margin-right: 5px;
 }
 
 .tabs>button:only-child {
-    clip-path: none;
+    clip-path: polygon(0 10px, 10px 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
 }
 
 .tabs>button:active {
@@ -98,10 +76,8 @@
     position: relative;
     width: 690px;
     margin: auto;
-    margin-top: 74px;
-    padding-top: 64px;
-    /* padding-bottom: 64px; */
-    background-color: var(--bg);
+    margin-top: 32px;
+    background: var(--bg-1);
 }
 
 .content.page section::before {
@@ -109,11 +85,12 @@
     display: block;
     position: absolute;
     top: 0;
+    margin-top: -32px;
     width: 100%;
-    height: 64px;
-    background-color: var(--fg);
-    mask: url(../etc/img/bottom.svg);
-    -webkit-mask: url(../etc/img/bottom.svg) 0/16px auto;
+    height: 0;
+    background: var(--bg-1);
+    mask: url(../etc/img/top.svg) 0/32px auto;
+    -webkit-mask: url(../etc/img/top.svg) 0/32px auto;
 }
 
 .content.page section::after {
@@ -122,9 +99,9 @@
     position: absolute;
     top: 100%;
     width: 100%;
-    height: 64px;
-    background-color: var(--bg);
-    mask: url(../etc/img/bottom.svg);
+    height: 16px;
+    background: var(--bg-1);
+    mask: url(../etc/img/bottom.svg) 0/32px auto;
     -webkit-mask: url(../etc/img/bottom.svg) 0/16px auto;
 }
 
@@ -146,9 +123,11 @@
 .content.page section h4,
 .content.page section h5,
 .content.page section h6 {
-    color: var(--accent);
+    color: var(--bg-1);
     margin: 0;
-    border-bottom: 1px solid var(--accent);
+    background-color: var(--accent);
+    box-shadow: 0 3px 5px 0 #000, 0 2px 10px 0 #000;
+    /* border-bottom: 1px solid var(--accent); */
     padding-left: 1em;
 }
 
@@ -160,12 +139,12 @@
 .content.page section h6 {border-width: 1px;}
 
 .content.page section p {
-    letter-spacing: .08em;
+    letter-spacing: .1em;
     text-align: justify;
     margin: 10px;
 }
 
 .content.page section ::selection {
     color: var(--accent);
-    background: #000;
+    background-color: #000;
 }

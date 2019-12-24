@@ -61,13 +61,13 @@
         position: absolute;
         top: 5px;
         right: 5px;
-
         border: none;
         background-color: var(--accent-open);
         width: 30px;
         height: 30px;
         border-radius: 50%;
         outline: none;
+        box-shadow: 0 3px 3px 0 #000;
     }
 
     #close_menu {
@@ -75,13 +75,13 @@
         position: absolute;
         top: 5px;
         right: 5px;
-
         border: none;
         background-color: var(--accent-close);
         width: 30px;
         height: 30px;
         border-radius: 50%;
         outline: none;
+        box-shadow: 0 3px 3px 0 #000;
     }
     
     #close_menu {
