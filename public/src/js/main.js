@@ -1,4 +1,3 @@
-import './modules/resizer.js';
 import './modules/content.js';
 import './modules/elements/modalwin.js';
 

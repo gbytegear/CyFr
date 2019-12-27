@@ -24,7 +24,7 @@ nav {
     transition: opacity 1s;
 }
 
-nav>button:not(#close_menu) {
+nav>button {
     position: relative;
     width: 100%;
     height: 50px;
@@ -45,11 +45,11 @@ nav>button:not(#close_menu) {
     text-shadow .2s;
 }
 
-nav>button:focus:not(#close_menu) {
+nav>button:focus {
     color: var(--bg);
 }
 
-nav>button:active:not(#close_menu) {
+nav>button:active {
     background-color: var(--accent);
     color: var(--bg-2);
 }
@@ -64,57 +64,6 @@ nav::after {
     background: var(--bg-1);
     mask: url(../etc/img/bottom.svg);
     -webkit-mask: url(../etc/img/bottom.svg) 0/16px auto;
-}
-
-#resizer {
-    position: fixed;
-    top: 0;
-    left: calc(var(--nav) - .5px);
-
-    box-sizing: content-box;
-    width: 5px;
-    height: calc(100vh - 50px);
-    margin-top: 25px;
-    margin-left: 8px;
-
-    /* border: calc(8px - (4px * var(--show-nav))) solid transparent; */
-    border: none;
-
-    padding: 0;
-
-    background: linear-gradient(to bottom,
-    var(--accent-1),
-    var(--accent-2),
-    var(--accent-3),
-    var(--accent-4),
-    var(--accent-5),
-    var(--accent-6),
-    var(--accent-7),
-    var(--accent-8),
-    var(--accent-9),
-    var(--accent-10),
-    var(--accent-11),
-    var(--accent-12),
-    var(--accent-13),
-    var(--accent-14),
-    var(--accent-15),
-    var(--accent-16)
-    );
-    outline: 0;
-
-    opacity: 0;
-
-    cursor: e-resize;
-
-    transition: opacity .5s;
-}
-
-#resizer:hover {
-    opacity: 1;
-}
-
-#resizer:active {
-    opacity: .5;
 }
 
 article{
@@ -144,12 +93,4 @@ nav>h1.title {
     color: var(--txt-0);
     background: var(--bg-1);
     box-shadow: 0 15px 40px -10px #000, 0 15px 20px -5px #000;
-}
-
-#open_menu {
-    display: none;
-}
-
-#close_menu {
-    display: none;
 }

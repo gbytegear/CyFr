@@ -98,6 +98,10 @@ button[data-svgicon]:active::before {
     background-color: var(--bg-2);
 }
 
+button>*{
+    pointer-events: none;
+}
+
 h1[data-svgicon]::before,
 h2[data-svgicon]::before,
 h3[data-svgicon]::before,

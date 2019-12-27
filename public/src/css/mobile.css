@@ -7,31 +7,6 @@
         display: none;
     }
 
-    /* nav {
-        left: auto;
-        right: calc(-85.5vw - 40px);
-        height: 100vh;
-        width: 85.5vw;
-        margin: 0;
-        border-radius: 0;
-        opacity: 1;
-        box-shadow:
-        -40px 0 20px -20px #0000,
-        -25vw 0 0 0 #0000;
-        transition: right .5s ease .4s, 
-        box-shadow .2s;
-    }
-
-    :root.open-menu nav {
-        right: 0;
-        box-shadow:
-        -40px 0 20px -20px #000f,
-        -15.5vw 0 0 0 #0008;
-
-        transition: right .5s, 
-        box-shadow .2s ease .5s;
-    } */
-
     nav {
         width: 100vw;
         height: 50px;

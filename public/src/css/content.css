@@ -217,3 +217,10 @@
 .content.page section>.images>.dbl-row{
     grid-row: auto / span 2;
 }
+
+
+@media only screen and (max-width: 1040px) {
+    .content.page section {
+        width: 100%;
+    }
+}

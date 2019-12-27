@@ -1,7 +1,8 @@
 modal-win {
     position: fixed;
     overflow: hidden;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     margin: 10px;
     visibility: hidden;
     opacity: 0;
@@ -10,9 +11,7 @@ modal-win {
     border-radius: 10px;
     background-color: var(--bg-2);
     transition: opacity .5s;
-    box-shadow: 
-    0 0 10px 5px #000,
-    0 0 0 20px var(--bg-1);
+    box-shadow: 0 0 0 20px var(--bg-1);
 }
 
 .modal-open modal-win {
