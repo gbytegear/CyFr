@@ -7,18 +7,15 @@
         display: none;
     }
 
-    nav {
+    /* nav {
         left: auto;
-        right: calc(-75vw - 40px);
+        right: calc(-85.5vw - 40px);
         height: 100vh;
-        width: 75vw;
+        width: 85.5vw;
         margin: 0;
         border-radius: 0;
         opacity: 1;
         box-shadow:
-        0 0 0 0 var(--accent-6),
-        0 0 0 0 var(--accent-12),
-        0 0 0 0 var( --accent-1),
         -40px 0 20px -20px #0000,
         -25vw 0 0 0 #0000;
         transition: right .5s ease .4s, 
@@ -28,14 +25,53 @@
     :root.open-menu nav {
         right: 0;
         box-shadow:
-        -10px 0 0 -5px var(--accent-6),
-        -20px 0 0 -10px var(--accent-12),
-        -30px 0 0 -15px var( --accent-1),
         -40px 0 20px -20px #000f,
-        -25vw 0 0 0 #0008;
+        -15.5vw 0 0 0 #0008;
 
         transition: right .5s, 
         box-shadow .2s ease .5s;
+    } */
+
+    nav {
+        width: 100vw;
+        height: 50px;
+        position: fixed;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        padding: 0;
+        margin: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    nav>h1{
+        display: none;
+    }
+    nav::after {
+        content: none;
+    }
+
+    /* nav>button */
+
+    nav>button>span {
+        display: none;
+    }
+
+    nav>button:not(#close_menu) {
+        height: 100%;
+        margin: 0;
+        width: 60px;
+        padding: 0;
+    }
+
+    nav>button:not(#close_menu)::before {
+        display: block;
+        width: 50px;
+        height: 30px;
+        margin-left: -5px;
+        margin-top: calc(50% - 15px);
     }
 
     article {

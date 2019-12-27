@@ -13,8 +13,7 @@ document.querySelector('nav').addEventListener('click', (e)=>{
     if(e.target.tagName == "NAV" || e.target.id == "close_menu")return;
     switch (e.target.dataset.action) {
         case "Page": 
-        content_controller.open('page', 'any-page');
-        return closeMenu();
+        return content_controller.open('page', 'any-page');
         case "Groups":
         case "Messages":
         case "Contacts":
@@ -22,7 +21,6 @@ document.querySelector('nav').addEventListener('click', (e)=>{
         case "Media":
         case "Settings":
         modal_win.open(e.target.dataset.action);
-        return closeMenu();
     }
 })
 
@@ -48,19 +46,19 @@ document.querySelector('article>.tabs').addEventListener('dblclick', e => {
 
 const article = document.querySelector('article');
 
-const openMenu = () => {
-    document.documentElement.classList.add('open-menu');
-    setTimeout(()=>article.addEventListener('click', closeMenu),1)
-};
+// const openMenu = () => {
+//     document.documentElement.classList.add('open-menu');
+//     setTimeout(()=>article.addEventListener('click', closeMenu),1)
+// };
 
-const closeMenu = ()=>{
-    if(!document.documentElement.classList.contains('open-menu'))return;
-    document.documentElement.classList.remove('open-menu');
-    article.removeEventListener('click', closeMenu);
-}
+// const closeMenu = ()=>{
+//     if(!document.documentElement.classList.contains('open-menu'))return;
+//     document.documentElement.classList.remove('open-menu');
+//     article.removeEventListener('click', closeMenu);
+// }
 
-open_menu.addEventListener('click', openMenu);
+// open_menu.addEventListener('click', openMenu);
 
-close_menu.addEventListener('click', closeMenu);
+// close_menu.addEventListener('click', closeMenu);
 
 // }catch(e){alert(e);} //mobile debug

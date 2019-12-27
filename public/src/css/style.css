@@ -68,12 +68,12 @@ body {
     overflow: hidden;
     background: var(--bg-1);
     color: var(--txt-1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
     font-family: SoftLineExtra;
 }
 
 button {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
     font-family: AktivGroteskCorpMedium;
 }
 
@@ -81,17 +81,37 @@ h1, h2, h3, h4, h5, h6 {
     font-family: AktivGroteskCorpMedium;
 }
 
-[data-svgicon]::before {
+button[data-svgicon]::before {
     display: inline-block;
     position: absolute;
     left: 10px;
-    top: calc(50% - 15px);
+    top: 0;
     content: "";
-    width: 30px;
-    height: 30px;
+    width: 70px;
+    height: 50px;
     background-color: var(--accent);
     mask: var(--svg-src) 0/30px auto;
-    -webkit-mask: var(--svg-src) 0/auto 100% no-repeat;
+    -webkit-mask: var(--svg-src) 0/100% 100% no-repeat;
 }
 
-[data-svgicon]::before
+button[data-svgicon]:active::before {
+    background-color: var(--bg-2);
+}
+
+h1[data-svgicon]::before,
+h2[data-svgicon]::before,
+h3[data-svgicon]::before,
+h4[data-svgicon]::before,
+h5[data-svgicon]::before,
+h6[data-svgicon]::before {
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: calc(50% - 20px);
+    content: "";
+    width: 40px;
+    height: 40px;
+    background-color: var(--accent);
+    mask: var(--svg-src) 0/30px auto;
+    -webkit-mask: var(--svg-src) 0/100% 100% no-repeat;
+}

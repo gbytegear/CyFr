@@ -10,7 +10,7 @@ nav {
     overflow-x: hidden;
     overflow-y: auto;
     box-sizing: border-box;
-    width: var(--nav);
+    width: 300px;
     height: calc(100vh - 10px);
     padding-top: calc(var(--header-size) + 32px);
     padding-bottom: 100px;
@@ -26,19 +26,18 @@ nav {
 
 nav>button:not(#close_menu) {
     position: relative;
-
     width: 100%;
     height: 50px;
     line-height: 50px;
-
     font-size: 25px;
-    
+    box-sizing: border-box;
+    padding-left: 100px;
+    margin-bottom: 10px;
     border: none;
     color: var(--accent);
     outline: none;
-
     background-color: transparent;
-
+    text-align: left;
     cursor: pointer;
     transition: 
     box-shadow 1s,
@@ -52,7 +51,7 @@ nav>button:focus:not(#close_menu) {
 
 nav>button:active:not(#close_menu) {
     background-color: var(--accent);
-    color: var(--fg);
+    color: var(--bg-2);
 }
 
 nav::after {
@@ -121,10 +120,10 @@ nav::after {
 article{
     position: fixed;
     top: 0;
-    left: calc(var(--nav) + 10px);
+    left: 310px;
     overflow: hidden;
     box-sizing: border-box;
-    width: calc(100vw - var(--nav) - 25px);
+    width: calc(100vw - 325px);
     height: calc(100vh - 10px);
     padding-top: calc(var(--header-size) + 30px);
     margin: 5px;
