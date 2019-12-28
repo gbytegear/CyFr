@@ -3,7 +3,7 @@ const content_controller = new class extends Array {
     constructor(){
         super();
         this.tabs = document.querySelector('article>.tabs');
-        this.contents = document.querySelector('article');
+        this.contents = document.querySelector('article>.content-wrapper');
     }
     
     open(type, name, data = null){

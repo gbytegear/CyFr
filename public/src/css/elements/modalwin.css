@@ -3,20 +3,24 @@ modal-win {
     overflow: hidden;
     top: 0;
     left: 0;
-    margin: 10px;
-    visibility: hidden;
-    opacity: 0;
-    width: calc(100vw - 20px);
-    height: calc(100vh - 20px);
-    border-radius: 10px;
+    /* margin: 10px; */
+    /* visibility: hidden; */
+    /* opacity: 0; */
+    width: 100vw;
+    height: 100vh;
     background-color: var(--bg-2);
-    transition: opacity .5s;
-    box-shadow: 0 0 0 20px var(--bg-1);
+    /* transition: opacity .5s; */
+    clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
+    transform: translateY(50vh);
+    transition: clip-path .25s, transform .5s;
 }
 
 .modal-open modal-win {
-    visibility: visible;
-    opacity: 1;
+    /* visibility: visible; */
+    /* opacity: 1; */
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transform: translateX(0);
+    transition: clip-path .5s, transform .25s;
 }
 
 modal-win>h1:first-child {
@@ -25,7 +29,6 @@ modal-win>h1:first-child {
     width: 100%;
     line-height: 50px;
     box-sizing: border-box;
-    border-radius: 10px 10px 0 0 ;
     /* border: 10px solid var(--bg-2); */
     text-align: center;
     box-shadow: 

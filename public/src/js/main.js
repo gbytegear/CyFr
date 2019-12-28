@@ -3,7 +3,12 @@ import './modules/elements/modalwin.js';
 
 // try{ //mobile debug
 let last_tab = 0,
-      current_tab = 0;
+    current_tab = 0;
+
+const switchClass = (element, _class) => 
+    element.classList.contains(_class)
+    ?element.classList.remove(_class)
+    :element.classList.add(_class);
 
 const content_title = document.querySelector('article>.title');
 const modal_win = document.querySelector('modal-win');
@@ -45,19 +50,4 @@ document.querySelector('article>.tabs').addEventListener('dblclick', e => {
 
 const article = document.querySelector('article');
 
-// const openMenu = () => {
-//     document.documentElement.classList.add('open-menu');
-//     setTimeout(()=>article.addEventListener('click', closeMenu),1)
-// };
-
-// const closeMenu = ()=>{
-//     if(!document.documentElement.classList.contains('open-menu'))return;
-//     document.documentElement.classList.remove('open-menu');
-//     article.removeEventListener('click', closeMenu);
-// }
-
-// open_menu.addEventListener('click', openMenu);
-
-// close_menu.addEventListener('click', closeMenu);
-
-// }catch(e){alert(e);} //mobile debug
+close_menu.addEventListener('click', ()=>switchClass(document.documentElement, 'closed-menu'))

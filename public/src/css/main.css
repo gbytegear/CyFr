@@ -1,6 +1,11 @@
 :root {
     --header-size: 25px;
     --selected-tab: 0;
+    --nav-size: 300px;
+}
+
+:root.closed-menu {
+    --nav-size: 90px;
 }
 
 nav {
@@ -10,18 +15,19 @@ nav {
     overflow-x: hidden;
     overflow-y: auto;
     box-sizing: border-box;
-    width: 300px;
+    width: var(--nav-size);
     height: calc(100vh - 10px);
-    padding-top: calc(var(--header-size) + 32px);
-    padding-bottom: 100px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     margin: 5px;
     background: var(--bg-2);
-    /*border-radius: 25px 25px 0 0;*/
     opacity: calc(1*var(--show-nav));
-    /* box-shadow: 
-    0 5px 20px 0 black,
-    0 5px 10px 0 black;*/
-    transition: opacity 1s;
+    transition: clip-path 1s, width 1s;
+    clip-path: polygon(0 0, calc(100% - 50px) 0, calc(100% - 50px) 50px, 100% 50px, 100% 100%, 0 100%);
+}
+
+:root.closed-menu nav {
+    clip-path: polygon(0 0, 100% 0, 100% 50px, 100% 50px, 100% 100%, 0 100%);
 }
 
 nav>button {
@@ -43,6 +49,12 @@ nav>button {
     box-shadow 1s,
     color .2s,
     text-shadow .2s;
+    transition: letter-spacing 1s, color .5s;
+}
+
+:root.closed-menu nav>button {
+    letter-spacing: -.5em;
+    color: transparent;
 }
 
 nav>button:focus {
@@ -54,30 +66,85 @@ nav>button:active {
     color: var(--bg-2);
 }
 
-nav::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: var(--header-size);
-    width: 100%;
-    height: 16px;
-    background: var(--bg-1);
-    mask: url(../etc/img/bottom.svg);
-    -webkit-mask: url(../etc/img/bottom.svg) 0/16px auto;
+button#close_menu {
+    position: fixed;
+    top: 5px; left: 255px;
+
+    width: 50px;
+    height: 50px;
+    padding: 0;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+
+    cursor: pointer;
+
+    transition: left 1s;
 }
+
+:root.closed-menu button#close_menu {
+    left: 100px;
+}
+
+button#close_menu::before {
+    content: "";
+    position: absolute;
+    top: 22.5px;
+    display: block;
+    width: 50px;
+    height: 5px;
+    background-color: var(--accent-close);
+    transform: rotate(45deg);
+    box-shadow: 0 0 0 0 var(--accent-close);
+    transition: 1s, box-shadow 1s linear;
+}
+
+:root.closed-menu button#close_menu::before {
+    top: 10px;
+    left: 6.25px;
+    width: 37.5px;
+    transform: rotate(0);
+    box-shadow: 0 12.5px 0 0 var(--accent-open);
+    background-color: var(--accent-open);
+}
+
+button#close_menu::after {
+    content: "";
+    position: absolute;
+    bottom: 22.5px;
+    display: block; 
+    width: 50px;
+    height: 5px;
+    background-color: var(--accent-close);
+    transform: rotate(-45deg);
+    box-shadow: 0 0 0 0 var(--accent-close);
+    transition: 1s, box-shadow 1s linear;
+}
+
+:root.closed-menu button#close_menu::after {
+    bottom: 10px;
+    left: 6.25px;
+    width: 37.5px;
+    transform: rotate(0);
+    box-shadow: 0 -12.5px 0 0 var(--accent-open);
+    background-color: var(--accent-open);
+}
+
 
 article{
     position: fixed;
     top: 0;
-    left: 310px;
+    left: calc(var(--nav-size) + 10px);
     overflow: hidden;
     box-sizing: border-box;
-    width: calc(100vw - 325px);
+    width: calc(100vw - var(--nav-size) - 25px);
     height: calc(100vh - 10px);
     padding-top: calc(var(--header-size) + 30px);
     margin: 5px;
     background: var(--bg-2);
     white-space: nowrap;
+    transition: left 1s, width 1s;
 }
 
 article>h1.title,
@@ -93,4 +160,25 @@ nav>h1.title {
     color: var(--txt-0);
     background: var(--bg-1);
     box-shadow: 0 15px 40px -10px #000, 0 15px 20px -5px #000;
+}
+
+button[data-svgicon]::before {
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: 0;
+    content: "";
+    width: 70px;
+    height: 50px;
+    background-color: var(--accent);
+    mask: var(--svg-src) 0/30px auto;
+    -webkit-mask: var(--svg-src) 0/100% 100% no-repeat;
+}
+
+button[data-svgicon]:active::before {
+    background-color: var(--bg-2);
+}
+
+button>*{
+    pointer-events: none;
 }
