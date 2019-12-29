@@ -1,4 +1,3 @@
-@import url(./elem.css);
 @import url(./main.css);
 @import url(./mobile.css);
 
@@ -6,6 +5,9 @@
 @import url(./content-mobile.css);
 
 @import url(./elements/modalwin.css);
+
+
+/* FONTS */
 
 @font-face {
     font-family: 'AktivGroteskCorpMedium';
@@ -16,6 +18,9 @@
     font-family: 'SoftLineExtra';
     src: url(../etc/fnt/SoftLineExtra.ttf) format("opentype");
 }
+
+
+/* ROOT VARIABLES */
 
 :root {
     --bg-1: #1f2935;
@@ -44,6 +49,9 @@
     --accent-15:#FF9800;
     --accent-16:#FF5722;
 }
+
+
+/* ACCENT SEQUENCE */
 
 .accent:nth-child(16n-15){--accent:var(--accent-1)}
 .accent:nth-child(16n-14){--accent:var(--accent-2)}
@@ -75,6 +83,7 @@ body {
 button {
     font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
     font-family: AktivGroteskCorpMedium;
+    user-select: none;
 }
 
 h1, h2, h3, h4, h5, h6 {

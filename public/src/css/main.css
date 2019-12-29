@@ -8,6 +8,9 @@
     --nav-size: 90px;
 }
 
+
+/* NAV */
+
 nav {
     position: fixed;
     top: 0;
@@ -23,11 +26,11 @@ nav {
     background: var(--bg-2);
     opacity: calc(1*var(--show-nav));
     transition: clip-path 1s, width 1s;
-    clip-path: polygon(0 0, calc(100% - 50px) 0, calc(100% - 50px) 50px, 100% 50px, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, calc(100% - 60px) 0, calc(100% - 50px) 10px, calc(100% - 50px) 40px, calc(100% - 40px) 50px, calc(100% - 10px) 50px, 100% 60px, 100% 100%, 0 100%);
 }
 
 :root.closed-menu nav {
-    clip-path: polygon(0 0, 100% 0, 100% 50px, 100% 50px, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 0, 100% 40px, 100% 50px, 100% 50px, 100% 60px, 100% 100%, 0 100%);
 }
 
 nav>button {
@@ -131,6 +134,29 @@ button#close_menu::after {
     background-color: var(--accent-open);
 }
 
+button[data-svgicon]::before {
+    display: inline-block;
+    position: absolute;
+    left: 10px;
+    top: 0;
+    content: "";
+    width: 70px;
+    height: 50px;
+    background-color: var(--accent);
+    mask: var(--svg-src) 0/30px auto;
+    -webkit-mask: var(--svg-src) 0/100% 100% no-repeat;
+}
+
+button[data-svgicon]:active::before {
+    background-color: var(--bg-2);
+}
+
+button>*{
+    pointer-events: none;
+}
+
+
+/* ARTICLE */
 
 article{
     position: fixed;
@@ -162,23 +188,82 @@ nav>h1.title {
     box-shadow: 0 15px 40px -10px #000, 0 15px 20px -5px #000;
 }
 
-button[data-svgicon]::before {
-    display: inline-block;
+
+/* Tabs */
+
+
+.tabs {
     position: absolute;
-    left: 10px;
-    top: 0;
-    content: "";
-    width: 70px;
-    height: 50px;
+    top: var(--header-size);
+    left: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    width: 100%;
+    height: 30px;
+    background: var(--bg-1);
+    box-shadow: 0 10px 5px 0 var(--bg-2), 0 10px 10px 0 var(--bg-2);
+    transition: padding 1s;
+  }
+  
+  
+  :root.closed-menu .tabs {
+      padding-left: 50px;
+  }
+  
+  
+  .tabs>button {
+    display: inline-block;
+    height: 100%;
+    font-size: 1.5em;
+    font-weight: 900;
+    color: var(--accent);
+    background: var(--bg-2);
+    border: none;
+    outline: none;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: -20px;
+    clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 100%, 30px 100%);
+  }
+  
+  .tabs>button:first-child {
+      margin-right: -5px;
+      margin-left: 0;
+      clip-path: polygon(0 10px, 10px 0, calc(100% - 30px) 0, 100% 100%, 0 100%);
+  }
+  
+  .tabs>button:last-child {
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 30px 100%);
+      margin-right: 5px;
+  }
+  
+  .tabs>button:only-child {
+      clip-path: polygon(0 10px, 10px 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+  }
+  
+  .tabs>button:active {
     background-color: var(--accent);
-    mask: var(--svg-src) 0/30px auto;
-    -webkit-mask: var(--svg-src) 0/100% 100% no-repeat;
-}
-
-button[data-svgicon]:active::before {
-    background-color: var(--bg-2);
-}
-
-button>*{
-    pointer-events: none;
-}
+    color: var(--bg-1);
+  }
+  
+  /* Contents */
+  
+  .content-wrapper {
+      display: contents;
+  }
+      
+  .content {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+      white-space: normal;
+      padding-bottom: 100px;
+  }
+  
+  .content-wrapper > .content:first-child {
+      margin-left: calc(-100%*var(--selected-tab));
+      transition: margin-left .5s;
+  }

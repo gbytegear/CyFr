@@ -11,7 +11,7 @@ modal-win {
     background-color: var(--bg-2);
     /* transition: opacity .5s; */
     clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
-    transform: translateY(50vh);
+    transform: translateY(50vh) rotate(180deg);
     transition: clip-path .25s, transform .5s;
 }
 
@@ -19,33 +19,22 @@ modal-win {
     /* visibility: visible; */
     /* opacity: 1; */
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-    transform: translateX(0);
+    transform: translateX(0) rotate(0);
     transition: clip-path .5s, transform .25s;
 }
 
 modal-win>h1:first-child {
     background-color: var(--bg-1);
+    color: var(--txt-0);
     margin: 0;
     width: 100%;
     line-height: 50px;
     box-sizing: border-box;
     /* border: 10px solid var(--bg-2); */
     text-align: center;
-    box-shadow: 
+    /* box-shadow: 
     0 15px 40px -10px #000,
-    0 15px 20px -5px #000;
-}
-
-modal-win>h1::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 50px;
-    width: 100%;
-    height: 16px;
-    background: var(--bg-1);
-    mask: url(../../etc/img/bottom.svg);
-    -webkit-mask: url(../../etc/img/bottom.svg) 0/16px auto;
+    0 15px 20px -5px #000; */
 }
 
 modal-win>.content {
