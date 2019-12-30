@@ -12,7 +12,7 @@ modal-win {
     /* transition: opacity .5s; */
     clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
     transform: translateY(50vh) rotate(180deg);
-    transition: clip-path .25s, transform .5s;
+    transition: clip-path .5s, transform 1s;
 }
 
 .modal-open modal-win {
@@ -20,7 +20,7 @@ modal-win {
     /* opacity: 1; */
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     transform: translateX(0) rotate(0);
-    transition: clip-path .5s, transform .25s;
+    transition: clip-path .5s, transform .5s;
 }
 
 modal-win>h1:first-child {
