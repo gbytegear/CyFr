@@ -1,6 +1,7 @@
 const url = require('url');
 const path = require('path');
-const fs = require('fs');
+global.fs = require('fs');
+const clients = require('./clients');
 
 const content_type = {
     '': 'text/html;charset=utf-8',
@@ -21,7 +22,7 @@ const content_type = {
 };
 
 const responseOfGetRequest = (request, response) => {
-    let request_path = server_settings.dir + url.parse(request.url, true).pathname;
+    let request_path = server_settings.public + url.parse(request.url, true).pathname;
     var response_type = content_type[path.extname(request_path)];
     request_path += (path.extname(request_path) == '')? 'index.html' : '';
 
@@ -41,12 +42,21 @@ const responseOfGetRequest = (request, response) => {
     });
 }
 
-const responseOfPostRequest = (request, response, data) => {
+const responseOfPostRequest = async (request, response, data) => {
     data = JSON.parse(data);
-    
+    const response_data = new Object;
+    for(let property in data)
+        switch (property) {
+            case "file":
+                response_data.file = fs.readFileSync(data.file);
+            break;
+            case "register": return clients.register(response);
+            case "auth": return clients.auth(response, data.auth);
+    }
+    response.end(JSON.stringify(response_data));
 }
 
 module.exports = (request, response, post_data) => {
     if(request.method == "GET") return responseOfGetRequest(request, response);
-    if(request.method == "POST") return responseOfGetRequest(request, response, post_data);
+    if(request.method == "POST") return responseOfPostRequest(request, response, post_data);
 }
