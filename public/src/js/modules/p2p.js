@@ -22,4 +22,7 @@ window.p2p = new class P2PController extends Array {
 
 };
 
+
+// LINKS:
 //https://habr.com/ru/company/badoo/blog/315812/
+//https://github.com/webrtc/samples/blob/gh-pages/src/content/datachannel/basic/js/main.js
