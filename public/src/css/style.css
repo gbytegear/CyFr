@@ -70,6 +70,26 @@
 .accent:nth-child(16n-1){--accent:var(--accent-15)}
 .accent:nth-child(16n){--accent:var(--accent-16)}
 
+@keyframes accent-animation {
+    from {--accent:var(--accent-1)}
+    6.25% {--accent:var(--accent-2)}
+    12.5% {--accent:var(--accent-3)}
+    18.75% {--accent:var(--accent-4)}
+    25% {--accent:var(--accent-5)}
+    31.25% {--accent:var(--accent-6)}
+    37.5% {--accent:var(--accent-7)}
+    43.75% {--accent:var(--accent-8)}
+    50% {--accent:var(--accent-9)}
+    56.25% {--accent:var(--accent-10)}
+    62.5% {--accent:var(--accent-11)}
+    68.75% {--accent:var(--accent-12)}
+    75% {--accent:var(--accent-13)}
+    81.25% {--accent:var(--accent-14)}
+    87.5% {--accent:var(--accent-15)}
+    93.75% {--accent:var(--accent-16)}
+    to {--accent:var(--accent-1)}
+}
+
 body {
     width: 100vw;
     height: 100vh;

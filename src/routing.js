@@ -43,17 +43,7 @@ const responseOfGetRequest = (request, response) => {
 }
 
 const responseOfPostRequest = async (request, response, data) => {
-    data = JSON.parse(data);
-    const response_data = new Object;
-    for(let property in data)
-        switch (property) {
-            case "file":
-                response_data.file = fs.readFileSync(data.file);
-            break;
-            case "register": return clients.register(response);
-            case "auth": return clients.auth(response, data.auth);
-    }
-    response.end(JSON.stringify(response_data));
+    // May need someday ...
 }
 
 module.exports = (request, response, post_data) => {

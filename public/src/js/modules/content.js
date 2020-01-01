@@ -1,4 +1,3 @@
-// try { //mobile debug
 const content_controller = new class extends Array {
     constructor(){
         super();
@@ -43,5 +42,3 @@ content_controller[0] = {
 //END OF CRUTCH
 
 window.content_controller = content_controller;
-
-// }catch(e){alert(e);} //mobile debug

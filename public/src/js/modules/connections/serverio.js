@@ -1,4 +1,4 @@
-const send = (json, callback = response => console.log(response)) => {
+const sendPost = (json, callback = response => console.log(response)) => {
     const xhr = new XMLHttpRequest();
     xhr.open("POST", './', true);
     xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
@@ -14,4 +14,10 @@ const send = (json, callback = response => console.log(response)) => {
     xhr.send(JSON.stringify(json));
 };
 
-window.serverIO = {send};
+const wsocket = new WebSocket(`ws://${location.host}`);
+
+
+
+// wsocket.onmessage = event => console.log(event);
+
+window.serverIO = {sendPost, wsocket};

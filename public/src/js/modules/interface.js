@@ -6,8 +6,11 @@ const switchClass = (element, _class) =>
     ?element.classList.remove(_class)
     :element.classList.add(_class);
 
+//Queries
 const content_title = document.querySelector('article>.title');
 const modal_win = document.querySelector('modal-win');
+const article = document.querySelector('article');
+const user_info = document.querySelector('.user-info');
 
 document.querySelector('nav').addEventListener('click', (e)=>{
     if(e.target.tagName == "NAV" || e.target.id == "close_menu")return;
@@ -18,7 +21,7 @@ document.querySelector('nav').addEventListener('click', (e)=>{
         case "Messages":
         case "Contacts":
         case "Notifications":
-        case "Media":
+        case "Files":
         case "Settings":
         modal_win.open(e.target.dataset.action);
     }
@@ -42,8 +45,8 @@ document.querySelector('article>.tabs').addEventListener('dblclick', e => {
     current_tab = last_tab;
     if(last_tab > 0)last_tab--;
     //TODO: add logic of delete current tab!!!
-}, false)
-
-const article = document.querySelector('article');
+}, false);
 
 close_menu.addEventListener('click', ()=>switchClass(document.documentElement, 'closed-menu'))
+
+user_info.querySelector('.avatar').addEventListener('click', () => switchClass(document.documentElement, 'opened-user-info'));
