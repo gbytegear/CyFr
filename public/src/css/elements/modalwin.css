@@ -8,19 +8,22 @@ modal-win {
     /* opacity: 0; */
     width: 100vw;
     height: 100vh;
-    background-color: var(--bg-2);
+    background-color: rgba(var(--bg-1-r), var(--bg-1-g), var(--bg-1-b), 1);
     /* transition: opacity .5s; */
     clip-path: polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%);
     transform: translateY(50vh) rotate(180deg);
     transition: clip-path .5s, transform 1s;
+    backdrop-filter: blur(0);
 }
 
 .modal-open modal-win {
     /* visibility: visible; */
     /* opacity: 1; */
+    background-color: rgba(var(--bg-2-r), var(--bg-2-g), var(--bg-2-b), .75);
     clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     transform: translateX(0) rotate(0);
-    transition: clip-path .5s, transform .5s;
+    transition: clip-path .5s, transform .5s, background-color  .5s ease .5s, backdrop-filter .5s ease .5s;
+    backdrop-filter: blur(8px);
 }
 
 modal-win>h1:first-child {
@@ -32,9 +35,9 @@ modal-win>h1:first-child {
     box-sizing: border-box;
     /* border: 10px solid var(--bg-2); */
     text-align: center;
-    /* box-shadow: 
+    box-shadow: 
     0 15px 40px -10px #000,
-    0 15px 20px -5px #000; */
+    0 15px 20px -5px #000;
 }
 
 modal-win>.content {

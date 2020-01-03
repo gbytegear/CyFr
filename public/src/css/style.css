@@ -1,10 +1,13 @@
-@import url(./main.css);
-@import url(./mobile.css);
+@import url(./env/desktop.css);
+@import url(./env/mobile.css);
 
-@import url(./content.css);
-@import url(./content-mobile.css);
+@import url(./content/styling.css);
+@import url(./content/desktop.css);
+@import url(./content/mobile.css);
 
 @import url(./elements/modalwin.css);
+
+@import url(./std.css);
 
 
 /* FONTS */
@@ -23,9 +26,23 @@
 /* ROOT VARIABLES */
 
 :root {
-    --bg-1: #1f2935;
-    --bg-2: #211319;
-    --bg-3: #000;
+
+    /* BG 1*/
+    --bg-1-r: 31;
+    --bg-1-g: 41;
+    --bg-1-b: 53;
+    /* BG 2*/
+    --bg-2-r: 33;
+    --bg-2-g: 19;
+    --bg-2-b: 25;
+    /* BG 3*/
+    --bg-3-r: 0;
+    --bg-3-g: 0;
+    --bg-3-b: 0;
+
+    --bg-1: rgb(var(--bg-1-r), var(--bg-1-g), var(--bg-1-b));
+    --bg-2: rgb(var(--bg-2-r), var(--bg-2-g), var(--bg-2-b));
+    --bg-3: rgb(var(--bg-3-r), var(--bg-3-g), var(--bg-3-b));
     --nav: 25%;
     --show-nav: 1;
     --txt-0: #fff;

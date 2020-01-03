@@ -48,10 +48,7 @@ nav>button {
     background-color: transparent;
     text-align: left;
     cursor: pointer;
-    transition: 
-    box-shadow 1s,
-    color .2s,
-    text-shadow .2s;
+    transition: box-shadow 1s, color .2s, text-shadow .2s;
     transition: letter-spacing 1s, color .5s;
 }
 
@@ -71,18 +68,15 @@ nav>button:active {
 
 button#close_menu {
     position: fixed;
-    top: 5px; left: 255px;
-
+    top: 5px;
+    left: 255px;
     width: 50px;
     height: 50px;
     padding: 0;
-
     background-color: transparent;
     border: none;
     outline: none;
-
     cursor: pointer;
-
     transition: left 1s;
 }
 
@@ -116,7 +110,7 @@ button#close_menu::after {
     content: "";
     position: absolute;
     bottom: 22.5px;
-    display: block; 
+    display: block;
     width: 50px;
     height: 5px;
     background-color: var(--accent-close);
@@ -151,16 +145,14 @@ button[data-svgicon]:active::before {
     background-color: var(--bg-2);
 }
 
-button>*{
+button>* {
     pointer-events: none;
 }
 
 
-
-
 /* ARTICLE */
 
-article{
+article {
     position: fixed;
     top: 0;
     left: calc(var(--nav-size) + 10px);
@@ -193,8 +185,7 @@ nav>h1.title {
 
 /* Tabs */
 
-
-.tabs {
+article>.tabs {
     position: absolute;
     top: var(--header-size);
     left: 0;
@@ -207,15 +198,13 @@ nav>h1.title {
     background: var(--bg-1);
     box-shadow: 0 10px 5px 0 var(--bg-2), 0 10px 10px 0 var(--bg-2);
     transition: padding 1s;
-  }
-  
-  
-  :root.closed-menu .tabs {
-      padding-left: 50px;
-  }
-  
-  
-  .tabs>button {
+}
+
+:root.closed-menu article>.tabs {
+    padding-left: 50px;
+}
+
+article>.tabs>button {
     display: inline-block;
     height: 100%;
     font-size: 1.5em;
@@ -228,49 +217,49 @@ nav>h1.title {
     padding-right: 30px;
     margin-left: -20px;
     clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 100%, 30px 100%);
-  }
-  
-  .tabs>button:first-child {
-      margin-right: -5px;
-      margin-left: 0;
-      clip-path: polygon(0 10px, 10px 0, calc(100% - 30px) 0, 100% 100%, 0 100%);
-  }
-  
-  .tabs>button:last-child {
-      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 30px 100%);
-      margin-right: 5px;
-  }
-  
-  .tabs>button:only-child {
-      clip-path: polygon(0 10px, 10px 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
-  }
-  
-  .tabs>button:active {
+}
+
+article>.tabs>button:first-child {
+    margin-right: -5px;
+    margin-left: 0;
+    clip-path: polygon(0 10px, 10px 0, calc(100% - 30px) 0, 100% 100%, 0 100%);
+}
+
+article>.tabs>button:last-child {
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 30px 100%);
+    margin-right: 5px;
+}
+
+article>.tabs>button:only-child {
+    clip-path: polygon(0 10px, 10px 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 0 100%);
+}
+
+article>.tabs>button:active {
     background-color: var(--accent);
     color: var(--bg-1);
-  }
-  
-  /* Contents */
-  
-  .content-wrapper {
-      display: contents;
-  }
-      
-  .content {
-      display: inline-block;
-      width: 100%;
-      height: 100%;
-      overflow-x: hidden;
-      overflow-y: auto;
-      white-space: normal;
-      padding-bottom: 100px;
-  }
-  
-  .content-wrapper > .content:first-child {
-      margin-left: calc(-100%*var(--selected-tab));
-      transition: margin-left .5s;
-  }
+}
 
+
+/* Contents */
+
+.content-wrapper {
+    display: contents;
+}
+
+.content-wrapper>.content {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    white-space: normal;
+    padding-bottom: 100px;
+}
+
+.content-wrapper>.content:first-child {
+    margin-left: calc(-100%*var(--selected-tab));
+    transition: margin-left .5s;
+}
 
 
 /* USER-INFO */
@@ -289,7 +278,6 @@ nav>h1.title {
 
 .user-info>.avatar {
     overflow: hidden;
-    /* position: absolute; */
     margin: auto;
     margin-right: 0;
     margin-top: 0;
@@ -300,7 +288,7 @@ nav>h1.title {
 }
 
 .user-info.unlogined>.avatar {
-    --svg-src: url(../etc/img/user.svg);
+    --svg-src: url(../../etc/img/user.svg);
     border: 5px solid var(--accent);
     cursor: pointer;
     transition: margin .5s;
@@ -313,17 +301,15 @@ nav>h1.title {
     display: block;
     width: 100%;
     height: 100%;
-
     mask: var(--svg-src) 0/100% 100% no-repeat;
     -webkit-mask: var(--svg-src) 0/100% 100% no-repeat;
-
     transition: background-color .5s;
 }
 
 .user-info>.nickname {
     position: absolute;
     top: calc(35px - .5em);
-    left: 5px;
+    left: 20px;
     font-size: 1.8em;
     color: var(--txt-0);
     visibility: hidden;
@@ -336,14 +322,39 @@ nav>h1.title {
     content: "Someone unknown";
 }
 
+.user-info>*:not(.avatar) {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .5s;
+}
+
+
+/* USER-INFO STATE: OPENED */
+
+.user-info.unlogined .ulog {
+    display: none;
+}
+
+.user-info:not(.unlogined) .log {
+    display: none;
+}
+
+:root.opened-user-info .user-info>*:not(.avatar) {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .5s ease 1s;
+}
+
 :root.opened-user-info .user-info {
-    width: 300px;
+    width: 400px;
     max-width: calc(100vw - 10px);
-    height: 400px;
+    height: 600px;
     max-height: calc(100vh - 10px);
-    background-color: var(--bg-1);
+    background-color: rgba(var(--bg-1-r), var(--bg-1-g), var(--bg-1-b), .75);
     clip-path: polygon(0 20px, 20px 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
-    box-shadow: 0 0 0 2px var(--accent) inset;
+    box-shadow: 0 0 0 2px var(--bg-3) inset;
+    border-radius: 0 30px 0 0;
+    backdrop-filter: blur(8px);
 }
 
 :root.opened-user-info .user-info::before {
@@ -355,7 +366,7 @@ nav>h1.title {
     width: 10px;
     height: 36px;
     transform: rotate(45deg);
-    background-color: var(--accent);
+    background-color: var(--bg-3);
 }
 
 :root.opened-user-info .user-info::after {
@@ -367,7 +378,7 @@ nav>h1.title {
     width: 10px;
     height: 36px;
     transform: rotate(45deg);
-    background-color: var(--accent);
+    background-color: var(--bg-3);
 }
 
 :root.opened-user-info .avatar {
@@ -381,4 +392,78 @@ nav>h1.title {
     visibility: visible;
     opacity: 1;
     letter-spacing: 0;
+}
+
+.user-info>.content {
+    --selected-tab: 0;
+}
+
+:root.opened-user-info .user-info>.content {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    height: calc(100% - 60px);
+    padding-top: 40px;
+    white-space: nowrap;
+}
+
+:root.opened-user-info .user-info>.content>.tabs {
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+:root.opened-user-info .user-info>.content>.tabs>* {
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    color: var(--txt-0);
+    border-bottom: 2px solid #000;
+    outline: none;
+    border-radius: 5px 5px 0 0;
+}
+
+:root.opened-user-info .user-info>.content>.tabs>*:active {
+    color: #0008;
+    background-color: var(--accent-open);
+}
+
+:root.opened-user-info .user-info>.content>.tab-wrapper {
+    --selected-tab: 0;
+    /* display: contents; */
+    position: relative;
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden !important;
+    margin: 0;
+}
+
+.user-info>.content>.tab-wrapper>* {
+    position: relative;
+    top: calc(-100% * var(--selected-tab));
+    display: block;
+    box-sizing: border-box;
+    padding-top: 25%;
+    width: 100%;
+    height: 100%;
+    transition: top 1s;
+    text-align: center;
+}
+
+.login-info-string,
+.register-info-string {
+    color: var(--accent-open);
+    text-shadow: 0 0 5px, 0 0 5px;
+}
+
+.login-info-string.err,
+.register-info-string.err {
+    color: var(--accent-close);
 }

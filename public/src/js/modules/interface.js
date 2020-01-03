@@ -11,6 +11,8 @@ const content_title = document.querySelector('article>.title');
 const modal_win = document.querySelector('modal-win');
 const article = document.querySelector('article');
 const user_info = document.querySelector('.user-info');
+const user_info_tabs = user_info.querySelector('.tabs');
+const user_info_tabs_content = user_info.querySelector('.tab-wrapper');
 
 document.querySelector('nav').addEventListener('click', (e)=>{
     if(e.target.tagName == "NAV" || e.target.id == "close_menu")return;
@@ -50,3 +52,28 @@ document.querySelector('article>.tabs').addEventListener('dblclick', e => {
 close_menu.addEventListener('click', ()=>switchClass(document.documentElement, 'closed-menu'))
 
 user_info.querySelector('.avatar').addEventListener('click', () => switchClass(document.documentElement, 'opened-user-info'));
+
+
+user_info_tabs.addEventListener('click', e => {
+    if(e.target.classList.contains('tabs'))return;
+    let index = [].indexOf.call(e.target.parentElement.children, e.target);
+    user_info_tabs_content.style.setProperty('--selected-tab', index);
+});
+
+login_button.addEventListener('click', e => {
+    let fields = e.target.parentElement.querySelectorAll('input[type="text"], input[type="password"]'),
+        pack = {lgn: fields[0].value, pswd: fields[1].value};
+    console.log(pack);
+    //validation
+    //asynchronous encrypting with server-key
+    //websocket-sending
+});
+
+register_button.addEventListener('click', e => {
+    let fields = e.target.parentElement.querySelectorAll('input[type="text"], input[type="password"]'),
+        pack = {lgn: fields[0].value, pswd: fields[1].value};
+    console.log(pack);
+    //validation
+    //asynchronous encrypting with server-key
+    //websocket-sending
+});

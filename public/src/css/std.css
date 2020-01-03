@@ -1,0 +1,55 @@
+input {
+    font-size: 1.5em;
+}
+
+input[type="text"],
+input[type="password"] {
+    background-color: transparent;
+    color: var(--txt-0);
+    border: 2px solid;
+    text-align: center;
+    padding: 5px;
+    font-family: SoftLineExtra;
+    border-radius: 5px;
+    margin: 5px;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+    box-shadow: 0 0 5px 0;
+    font-weight: 900;
+}
+
+input[type="button"] {
+    background-color: var(--accent-open);
+    box-shadow: 
+    0 5px 0 0 #0008,
+    0 5px 0 0 var(--accent-open);
+    border: none;
+    border-radius: 5px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding: 5px;
+    outline: none;
+    color: #0008;
+    transition: none;
+}
+
+input[type="button"]:focus {
+    box-shadow: 
+    0 10px 0 0 #0008,
+    0 10px 0 0 var(--accent-open);
+    margin-top: 0;
+    margin-bottom: 15px;
+    transition: margin .2s, box-shadow .2s; 
+}
+
+input[type="button"]:active {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    box-shadow: none;
+    /* color: #000; */
+    text-shadow: 0 0 15px #000;
+    transition: none;
+}
