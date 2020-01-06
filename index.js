@@ -1,6 +1,7 @@
-const routing = require('./src/routing');
+global.fs = require('fs');
 global.server_settings = require('./settings.json');
-
+const routing = require('./src/routing'),
+      wsProcessing = require('./src/websocket');
 global.server = new (require('http')).Server((request, response) => {
     let post_data = new String;
     response.setHeader('Content-Type', 'application/json');
@@ -15,7 +16,8 @@ global.server = new (require('http')).Server((request, response) => {
 
 global.ws = new (require('ws').Server)({ server: global.server });
 
-global.ws.on('connection', (socket, request) => require('./src/websocket')(socket, request));
+global.ws.on('connection', (socket, request) => wsProcessing(socket, request));
 
 server.listen(server_settings.port);
+// console.clear();
 console.log(`Server listen on: http://${server_settings.host}:${server_settings.port}`);

@@ -35,7 +35,7 @@ modal-win>h1:first-child {
     box-sizing: border-box;
     /* border: 10px solid var(--bg-2); */
     text-align: center;
-    box-shadow: 
+    box-shadow:
     0 15px 40px -10px #000,
     0 15px 20px -5px #000;
 }
@@ -62,4 +62,46 @@ modal-win>.close {
 modal-win>.close:active {
     margin-top: 3px;
     box-shadow: none;
+}
+
+modal-win>.content .grid {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+modal-win>.content .grid>* {width: 150px; height: 150px; margin: 10px;}
+
+.groups>* {
+  position: relative;
+  background-color: var(--bg-1);
+  box-shadow: 0 5px 20px 5px #000;
+  box-sizing: border-box;
+  border: 2px solid #fff2;
+  border-radius: 3px;
+}
+
+.groups>*::before {
+  content: attr(data-group);
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1.25em;
+  line-height: 1.25em;
+  color: var(--txt-0);
+  text-align: center;
+  background-color: #0008;
+  transition: .5s;
+}
+
+.groups>*:hover::before {
+  height: 2em;
+  line-height: 2em;
 }

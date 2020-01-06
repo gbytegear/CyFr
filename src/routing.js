@@ -1,14 +1,14 @@
 const url = require('url');
 const path = require('path');
-global.fs = require('fs');
-const clients = require('./clients');
+
+const clientGet = require('./clients/get');
 
 const content_type = {
     '': 'text/html;charset=utf-8',
     '.html': 'text/html;charset=utf-8',
     '.js': 'application/javascript',
     '.css': 'text/css',
-    
+
     //IMAGES
     '.jpg': 'image/jpeg',
     '.jpeg': 'image/pjpeg',
@@ -22,6 +22,10 @@ const content_type = {
 };
 
 const responseOfGetRequest = (request, response) => {
+    if(request.url.indexOf('@user:') != -1)
+      return clientGet(
+        JSON.parse(Buffer.from(request.url.substring(request.url.indexOf('@user:') + 6), 'base64').toString()),
+        response );
     let request_path = server_settings.public + url.parse(request.url, true).pathname;
     var response_type = content_type[path.extname(request_path)];
     request_path += (path.extname(request_path) == '')? 'index.html' : '';

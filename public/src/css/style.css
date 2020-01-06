@@ -126,3 +126,22 @@ button {
 h1, h2, h3, h4, h5, h6 {
     font-family: AktivGroteskCorpMedium;
 }
+
+/* LIST VIEW */
+
+.list {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.list>* {
+  display: block;
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  background-color: transparent;
+  color: var(--txt-0);
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid;
+}

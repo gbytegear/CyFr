@@ -17,13 +17,41 @@ input[type="password"] {
 
 input[type="text"]:focus,
 input[type="password"]:focus {
-    box-shadow: 0 0 5px 0;
+    text-shadow: 0 3px 0 #fff4;
+    box-shadow:
+    0 3px 0 0 #fff4,
+     0 3px 0 0 #fff4 inset;
     font-weight: 900;
+}
+
+input[type="text"].err,
+input[type="password"].err {
+  background: linear-gradient(45deg,
+    #f44a 12.5%,
+    transparent 12.5%,
+    transparent 37.5%,
+    #f44a 37.5%,
+    #f44a 62.5%,
+    transparent 62.5%,
+    transparent 87.5%,
+    #f44a 87.5%
+    );
+  background-size: 5px 5px;
+  border-color: #f44;
+  text-shadow: 0 5px 0 #f44a;
+}
+
+input[type="text"].err:focus,
+input[type="password"].err:focus {
+    text-shadow: 0 5px 0 #a22;
+    box-shadow:
+    0 3px 0 0 #a22,
+     0 3px 0 0 #a22 inset;
 }
 
 input[type="button"] {
     background-color: var(--accent-open);
-    box-shadow: 
+    box-shadow:
     0 5px 0 0 #0008,
     0 5px 0 0 var(--accent-open);
     border: none;
@@ -37,12 +65,12 @@ input[type="button"] {
 }
 
 input[type="button"]:focus {
-    box-shadow: 
+    box-shadow:
     0 10px 0 0 #0008,
     0 10px 0 0 var(--accent-open);
     margin-top: 0;
     margin-bottom: 15px;
-    transition: margin .2s, box-shadow .2s; 
+    transition: margin .2s, box-shadow .2s;
 }
 
 input[type="button"]:active {

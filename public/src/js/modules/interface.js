@@ -1,7 +1,7 @@
 let last_tab = 0,
     current_tab = 0;
 
-const switchClass = (element, _class) => 
+const switchClass = (element, _class) =>
     element.classList.contains(_class)
     ?element.classList.remove(_class)
     :element.classList.add(_class);
@@ -13,11 +13,12 @@ const article = document.querySelector('article');
 const user_info = document.querySelector('.user-info');
 const user_info_tabs = user_info.querySelector('.tabs');
 const user_info_tabs_content = user_info.querySelector('.tab-wrapper');
+const user_info_list_menu = user_info.querySelector('.list.log');
 
 document.querySelector('nav').addEventListener('click', (e)=>{
     if(e.target.tagName == "NAV" || e.target.id == "close_menu")return;
     switch (e.target.dataset.action) {
-        case "Page": 
+        case "Page":
         return content_controller.open('page', 'any-page');
         case "Groups":
         case "Messages":
@@ -60,20 +61,12 @@ user_info_tabs.addEventListener('click', e => {
     user_info_tabs_content.style.setProperty('--selected-tab', index);
 });
 
-login_button.addEventListener('click', e => {
-    let fields = e.target.parentElement.querySelectorAll('input[type="text"], input[type="password"]'),
-        pack = {lgn: fields[0].value, pswd: fields[1].value};
-    console.log(pack);
-    //validation
-    //asynchronous encrypting with server-key
-    //websocket-sending
-});
+login_button.addEventListener('click', e => login(e));
+register_button.addEventListener('click', e => register(e));
 
-register_button.addEventListener('click', e => {
-    let fields = e.target.parentElement.querySelectorAll('input[type="text"], input[type="password"]'),
-        pack = {lgn: fields[0].value, pswd: fields[1].value};
-    console.log(pack);
-    //validation
-    //asynchronous encrypting with server-key
-    //websocket-sending
+user_info_list_menu.addEventListener('click', e => {
+  if(e.target.tagName != "BUTTON")return;
+  switch (e.target.dataset.action) {
+    case "Exit":return logout();
+  }
 });

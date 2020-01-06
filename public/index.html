@@ -73,31 +73,40 @@
     </nav>
     <button id="close_menu"></button>
     <div class="user-info unlogined">
-        <div class="avatar"></div>
+        <div class="avatar no-avatar"></div>
         <div class="nickname"></div>
         <div class="content">
-            <div class="tabs">
+          <!-- unlogined -->
+            <div class="tabs ulog">
                 <button data-tab="log">Login</button>
                 <button data-tab="reg">Registration</button>
             </div>
-            <div class="tab-wrapper">
+            <div class="tab-wrapper ulog">
                 <div class="tab">
-                    <input type="text" placeholder="nickname"/> <br>
-                    <input type="password" placeholder="password"/> <br>
-                    <input type="button" value="Login" id="login_button"> <br>
+                    <input type="text" placeholder="nickname"/>
+                    <input type="password" placeholder="password"/>
+                    <input type="button" value="Login" id="login_button">
                     <span class="login-info-string"></span>
                 </div>
                 <div class="tab">
-                    <input type="text" placeholder="nickname"/> <br>
-                    <input type="password" placeholder="password"/> <br>
-                    <input type="button" value="Register" id="register_button"> <br>
+                    <input type="text" placeholder="nickname"/>
+                    <input type="text" placeholder="email"/>
+                    <input type="password" placeholder="password"/>
+                    <input type="button" value="Register" id="register_button">
                     <span class="register-info-string"></span>
                 </div>
+            </div>
+            <!-- logined -->
+            <div class="list log">
+              <button data-action="Profile">Profile</button>
+              <button data-action="Privacy">Privacy</button>
+              <button data-action="Exit">Exit</button>
             </div>
         </div>
     </div>
     <modal-win></modal-win>
 
+    <script type="application/javascript" src="./src/js/modules/sha3.min.js"></script>
     <script type="module" src="./src/js/main.js"></script>
 </body>
 
