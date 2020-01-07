@@ -30,15 +30,38 @@ document.querySelector('nav').addEventListener('click', (e)=>{
     }
 })
 
+
+let tab_click_state = 'select',
+      swap_index = null;
+
 document.querySelector('article>.tabs').addEventListener('click', e => {
     if(e.target.classList.contains('tabs'))return;
     let index = [].indexOf.call(e.target.parentElement.children, e.target);
-    if(current_tab == index) return;
-    document.documentElement.style.setProperty('--selected-tab', index);
-    content_title.innerText = e.target.innerText;
-    last_tab = current_tab;
-    current_tab = index;
-})
+    if(tab_click_state == 'select'){
+      if(current_tab == index) return;
+      document.documentElement.style.setProperty('--selected-tab', index);
+      content_title.innerText = e.target.innerText;
+      last_tab = current_tab;
+      current_tab = index;
+    } else if (tab_click_state == 'swap') {
+      content_controller[swap_index].swap(content_controller[index]);
+      tab_click_state = "select";
+
+      content_controller[0].elements.page.style.transition = "none";
+      if(current_tab == index) return;
+      document.documentElement.style.setProperty('--selected-tab', index);
+      content_title.innerText = e.target.innerText;
+      last_tab = current_tab;
+      current_tab = index;
+      setTimeout(()=>content_controller[0].elements.page.style.transition = "");
+    }
+});
+
+document.querySelector('article>.tabs').addEventListener('contextmenu', e => {
+    if(e.target.classList.contains('tabs'))return;
+    swap_index = [].indexOf.call(e.target.parentElement.children, e.target);
+    tab_click_state = "swap";
+});
 
 document.oncontextmenu = () => false;
 

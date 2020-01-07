@@ -1,43 +1,98 @@
-const content_controller = new class extends Array {
-    constructor(){
-        super();
-        this.tabs = document.querySelector('article>.tabs');
-        this.contents = document.querySelector('article>.content-wrapper');
-    }
-    
-    open(type, name, data = null){
-        const tab = document.createElement('button');
-        const content = document.createElement('div');
-        
-        tab.className = "accent";
-        tab.innerText = name;
-        content.className = `content ${type}`;
-        
-        this.tabs.appendChild(tab);
-        this.contents.appendChild(content);
-        
-        this.push({tab, content});
-    }
-    
+class PageController {
+  elements = null;
+  type = null;
+  id = null;
+  dataQuery = null;
+  constructor(containers, type, name, dataQuery) {
+    this.elements = {
+      page: document.createElement('div'),
+      tab_button: document.createElement('button')
+    };
+
+    this.type = type;
+    this.dataQuery = dataQuery;
+    this.id = content_controller.length;
+
+    this.elements.tab_button.className = "accent";
+    this.elements.tab_button.innerText = name;
+    this.elements.page.className = `content ${type}`;
+
+    containers.tabs.appendChild(this.elements.tab_button);
+    containers.contents.appendChild(this.elements.page);
+  }
+
+  add() {
+    containers.tabs.appendChild(this.elements.tab_button);
+    containers.contents.appendChild(this.elements.page);
+  }
+
+  remove() {
+    this.elements.tab_button.remove();
+    this.elements.page.remove()
+  }
+
+  swap(page) {
+    [this.type, page.type] = [page.type, this.type];
+    [this.dataQuery, page.dataQuery] = [page.dataQuery, this.dataQuery];
+    [this.id, page.id] = [page.id, this.id];
+
+    [this.elements.page.innerHTML,
+      page.elements.page.innerHTML]
+      =
+    [page.elements.page.innerHTML,
+      this.elements.page.innerHTML];
+    [this.elements.page.className,
+      page.elements.page.className]
+      =
+    [page.elements.page.className,
+      this.elements.page.className];
+    [this.elements.page.style,
+      page.elements.page.style]
+      =
+    [page.elements.page.getAttribute('style'),
+      this.elements.page.getAttribute('style')];
+    // [this.elements.page.scrollTop,
+    //   page.elements.page.scrollTop]
+    //   =
+    // [page.elements.page.scrollTop,
+    //   this.elements.page.scrollTop];
+
+
+    [this.elements.tab_button.innerText,
+      page.elements.tab_button.innerText]
+      =
+    [page.elements.tab_button.innerText,
+      this.elements.tab_button.innerText];
+  }
+
+}
+
+const content_controller = new class PageFactory extends Array {
+    static conatiners = {
+      tabs: document.querySelector('article>.tabs'),
+      contents: document.querySelector('article>.content-wrapper')
+    };
+
+    constructor(){super();}
+
+    open(type, name, dataQuery = null){this.push(new PageController(PageFactory.conatiners, type, name, dataQuery));}
+
     change(index, name, type = null) {
-        
+
     }
-    
+
     close(index){
-        this[index].tab.remove();
-        this[index].content.remove();
+        this[index].remove();
         this.splice(index, 1);
-    }
-    
-    getContent () {
-        const xhr = new XmlHttpRequest();
     }
 }
 
 //FIX THIS FUCKING SHIT: CRUTCH FOR TESTING!!!
-content_controller[0] = {
-    tab: document.querySelector('.tabs>button:nth-child(1)'),
-    content: document.querySelector('.content-wrapper > .content:first-child')
+content_controller.open('page', "My page");
+content_controller[0].remove();
+content_controller[0].elements = {
+  tab_button: document.querySelector('.tabs>button:nth-child(1)'),
+  page: document.querySelector('.content-wrapper > .content:first-child')
 }
 //END OF CRUTCH
 

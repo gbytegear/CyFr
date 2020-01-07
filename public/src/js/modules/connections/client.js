@@ -9,29 +9,53 @@ const logined = () => {
   user_info_element.querySelector('.nickname').innerText = "";
 };
 
-serverIO.wsocket.onmessage = e => {
-  let data = JSON.parse(e.data);
-  if(data.action) switch(data.action) {
-    case "connect":
-      if(!uid)return serverIO.wsocket.send('{"action":"session","new":true}');
-      return serverIO.wsocket.send(`{"action":"session","uid":"${uid}"}`);
-    case "setUID":
-      uid = data.uid;
-      window.salt = data.salt;
-      return client = {logined: false};
-    case "setState":
-      delete data.action;
-      if(data.salt) {
-        window.salt = data.salt;
-        delete data.salt;
-      }
-      client = data;
-      if(client.logined)
-        logined();
-        else
-        unlogined();
+serverIO.wsOn('connect', data => {
+  if(!uid)return serverIO.wsocket.send('{"action":"session","new":true}');
+  serverIO.wsSend("session", {uid});
+  // serverIO.wsocket.send(`{"action":"session","uid":"${uid}"}`);
+});
+
+serverIO.wsOn('setUID', data => {
+  uid = data.uid;
+  window.salt = data.salt;
+  client = {logined: false};
+});
+
+serverIO.wsOn('setState', data => {
+  if(data.salt) {
+    window.salt = data.salt;
+    delete data.salt;
   }
-}
+  client = data;
+  if(client.logined)
+    logined();
+    else
+    unlogined();
+});
+
+// serverIO.wsocket.onmessage = e => {
+//   let data = JSON.parse(e.data);
+//   if(data.action) switch(data.action) {
+//     case "connect":
+//       if(!uid)return serverIO.wsocket.send('{"action":"session","new":true}');
+//       return serverIO.wsocket.send(`{"action":"session","uid":"${uid}"}`);
+//     case "setUID":
+//       uid = data.uid;
+//       window.salt = data.salt;
+//       return client = {logined: false};
+//     case "setState":
+//       delete data.action;
+//       if(data.salt) {
+//         window.salt = data.salt;
+//         delete data.salt;
+//       }
+//       client = data;
+//       if(client.logined)
+//         logined();
+//         else
+//         unlogined();
+//   }
+// }
 
 Object.defineProperties(window, {
   uid:{
@@ -49,7 +73,6 @@ window.login = e => {
   let fields = e.target.parentElement.querySelectorAll('input[type="text"], input[type="password"]'),
       err_str = '',
       pack = {
-        action: "login",
         nickname: fields[0].value,
         pswdhash: keccak512(keccak512(fields[1].value) + salt),
         uid: localStorage.getItem('uid')
@@ -68,14 +91,13 @@ window.login = e => {
     return;
   }
   //websocket-sending
-  serverIO.wsocket.send(JSON.stringify(pack));
+  serverIO.wsSend("login", pack);
 }
 
 window.register = e => {
   let fields = e.target.parentElement.querySelectorAll('input[type="text"], input[type="password"]'),
       err_str = '',
       pack = {
-        action: "register",
         nickname: fields[0].value,
         email: fields[1].value,
         pswdhash: keccak512(fields[2].value),
@@ -95,9 +117,9 @@ window.register = e => {
     return;
   }
   //websocket-sending
-  serverIO.wsocket.send(JSON.stringify(pack));
+  serverIO.wsSend("register", pack);
 }
 
 window.logout = () => {
-  serverIO.wsocket.send(`{"action":"logout","uid":"${uid}"}`);
+  serverIO.wsSend("logout", {uid});
 }
