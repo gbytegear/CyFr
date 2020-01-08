@@ -32,37 +32,29 @@ class PageController {
   }
 
   swap(page) {
-    [this.type, page.type] = [page.type, this.type];
-    [this.dataQuery, page.dataQuery] = [page.dataQuery, this.dataQuery];
-    [this.id, page.id] = [page.id, this.id];
+    [
+      this.type, page.type,
+      this.dataQuery, page.dataQuery,
+      this.id, page.id,
+      this.elements.page.innerHTML, page.elements.page.innerHTML,
+      this.elements.page.className, page.elements.page.className,
+      this.elements.page.style, page.elements.page.style,
+      this.elements.tab_button.innerText, page.elements.tab_button.innerText
+    ] = [
+      page.type, this.type,
+      page.dataQuery, this.dataQuery,
+      page.id, this.id,
+      page.elements.page.innerHTML, this.elements.page.innerHTML,
+      page.elements.page.className, this.elements.page.className,
+      page.elements.page.getAttribute('style'), this.elements.page.getAttribute('style'),
+      page.elements.tab_button.innerText, this.elements.tab_button.innerText
+    ];
 
-    [this.elements.page.innerHTML,
-      page.elements.page.innerHTML]
-      =
-    [page.elements.page.innerHTML,
-      this.elements.page.innerHTML];
-    [this.elements.page.className,
-      page.elements.page.className]
-      =
-    [page.elements.page.className,
-      this.elements.page.className];
-    [this.elements.page.style,
-      page.elements.page.style]
-      =
-    [page.elements.page.getAttribute('style'),
-      this.elements.page.getAttribute('style')];
-    // [this.elements.page.scrollTop,
-    //   page.elements.page.scrollTop]
-    //   =
-    // [page.elements.page.scrollTop,
-    //   this.elements.page.scrollTop];
-
-
-    [this.elements.tab_button.innerText,
-      page.elements.tab_button.innerText]
-      =
-    [page.elements.tab_button.innerText,
-      this.elements.tab_button.innerText];
+      // [this.elements.page.scrollTop,
+      //   page.elements.page.scrollTop]
+      //   =
+      // [page.elements.page.scrollTop,
+      //   this.elements.page.scrollTop];
   }
 
 }

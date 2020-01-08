@@ -5,8 +5,8 @@ const guid = () => {
     return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
 }
 
-let clients = JSON.parse(global.fs.readFileSync(server_settings.clients, 'utf8'));
-let client_lock = false;
+// let clients = JSON.parse(global.fs.readFileSync(server_settings.clients, 'utf8'));
+// let client_lock = false;
 const sessions = {};
 
 //Public access
@@ -54,46 +54,56 @@ const disconnect = socket => {
 }
 
 const register = (socket, data) => {
-  while(client_lock); //LOCK WAITING!
-  client_lock = true; //LOCK ON!
-  const client_storage = JSON.parse(global.fs.readFileSync(server_settings.clients, 'utf8'));
-  client_storage[data.nickname] = {
+  const client_data = {
+    nickname: data.nickname,
     pswdhash: data.pswdhash,
     settings: {}
   };
-  clients = client_storage;
-  fs.writeFileSync(server_settings.clients, JSON.stringify(client_storage), "utf8");
-  client_lock = false; //LOCK OFF!
-  sessions[data.uid] = {
-    nickname: data.nickname,
-    settings: clients[data.nickname].settings
-  };
-  return socket.send(`{"action":"setState","logined":true,"nickname":"${sessions[data.uid].nickname}","settings":${JSON.stringify(sessions[data.uid].settings)}}`);
+
+  return db.storage.users.findOne({nickname: client_data.nickname}, (err, doc) => {
+    if(err){
+      console.error(err);
+    } else if(doc == null) {
+      db.storage.users.insertOne(client_data, err => {
+        if(err) return console.error(err);
+        sessions[data.uid] = {
+          nickname: client_data.nickname,
+          settings: client_data.settings
+        };
+        return socket.send(`{"action":"setState","logined":true,"nickname":"${sessions[data.uid].nickname}","settings":${JSON.stringify(sessions[data.uid].settings)}}`);
+      });
+    } else {
+      return socket.send(`{"action":"register_err","err_str":"Nickname is taken by another user"}`)
+    }
+  });
 }
 
-const login = (socket, data) => {
-  if(!clients.hasOwnProperty(data.nickname)){
-    let client_storage = JSON.parse(global.fs.readFileSync(server_settings.clients, 'utf8'));
-    if(client_storage.hasOwnProperty(data.nickname)) {
-      while(client_lock); //LOCK WAITING!
-      client_lock = true; //LOCK ON!
-      clients = client_storage;
-      client_lock = false; //LOCK OFF!
+const login = (socket, data) =>
+    db.storage.users.findOne({nickname: data.nickname}, (err, client) => {
+    if(err){
+      console.error(err);
+    }
+
+    else if ((client != null)?
+    (js_sha3.keccak512(client.pswdhash + sessions[data.uid].salt) === data.pswdhash)
+    : false ) {
+
+      sessions[data.uid] = {
+        id: client._id,
+        nickname: client.nickname,
+        settings: client.settings
+      }
+      return socket.send(`{"action":"setState","logined":true,"nickname":"${client.nickname}","settings":${JSON.stringify(client.settings)}}`);
+
     } else {
+
       sessions[data.uid].salt = guid();
       return socket.send(`{"action":"login_err","err_str":"Incorrect login or password!","salt":"${sessions[data.uid].salt}"}`);
+
     }
-  }
-  if(js_sha3.keccak512(clients[data.nickname].pswdhash + sessions[data.uid].salt) === data.pswdhash){
-    sessions[data.uid] = {
-      nickname: data.nickname,
-      settings: clients[data.nickname].settings
-    }
-    return socket.send(`{"action":"setState","logined":true,"nickname":"${sessions[data.uid].nickname}","settings":${JSON.stringify(sessions[data.uid].settings)}}`);
-  }
-  sessions[data.uid].salt = guid();
-  return socket.send(`{"action":"login_err","err_str":"Incorrect login or password!","salt":"${sessions[data.uid].salt}"}`);
-}
+  });
+
+
 
 const logout = (socket, data) => {
   if(!sessions.hasOwnProperty(data.uid))return session(socket, data);

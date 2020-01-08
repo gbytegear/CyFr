@@ -1,5 +1,7 @@
 global.fs = require('fs');
 global.server_settings = require('./settings.json');
+require('./src/db');
+
 const routing = require('./src/routing'),
       wsProcessing = require('./src/websocket');
 global.server = new (require('http')).Server((request, response) => {

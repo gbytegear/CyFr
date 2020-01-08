@@ -121,6 +121,7 @@ button {
     font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
     font-family: AktivGroteskCorpMedium;
     user-select: none;
+    cursor: pointer;
 }
 
 h1, h2, h3, h4, h5, h6 {

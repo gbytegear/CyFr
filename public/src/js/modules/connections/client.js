@@ -10,7 +10,7 @@ const logined = () => {
 };
 
 serverIO.wsOn('connect', data => {
-  if(!uid)return serverIO.wsocket.send('{"action":"session","new":true}');
+  if(!uid)return serverIO.wsSend("session", {new: true});
   serverIO.wsSend("session", {uid});
   // serverIO.wsocket.send(`{"action":"session","uid":"${uid}"}`);
 });
@@ -32,30 +32,6 @@ serverIO.wsOn('setState', data => {
     else
     unlogined();
 });
-
-// serverIO.wsocket.onmessage = e => {
-//   let data = JSON.parse(e.data);
-//   if(data.action) switch(data.action) {
-//     case "connect":
-//       if(!uid)return serverIO.wsocket.send('{"action":"session","new":true}');
-//       return serverIO.wsocket.send(`{"action":"session","uid":"${uid}"}`);
-//     case "setUID":
-//       uid = data.uid;
-//       window.salt = data.salt;
-//       return client = {logined: false};
-//     case "setState":
-//       delete data.action;
-//       if(data.salt) {
-//         window.salt = data.salt;
-//         delete data.salt;
-//       }
-//       client = data;
-//       if(client.logined)
-//         logined();
-//         else
-//         unlogined();
-//   }
-// }
 
 Object.defineProperties(window, {
   uid:{
@@ -79,11 +55,15 @@ window.login = e => {
       };
   console.log(pack);
   //validation
+  fields[0].classList.remove('err');
+  fields[1].classList.remove('err');
   if(pack.nickname.length == 0) (fields[0].classList.add('err'), err_str += "Login isn't entered!\n");
+
   if(fields[1].value.length == 0)
     (fields[1].classList.add('err'), err_str += "Password isn't entered!\n");
     else if(fields[1].value.length < 8)
     (fields[1].classList.add('err'), err_str += "Password is too short!\n");
+
   if(err_str != '') {
     let info_str = e.target.parentElement.querySelector('.login-info-string');
     info_str.classList.add('err');
@@ -105,13 +85,22 @@ window.register = e => {
       };
   console.log(pack);
   //validation
+  fields[0].classList.remove('err');
+  fields[1].classList.remove('err');
+  fields[2].classList.remove('err');
   if(pack.nickname.length == 0) (fields[0].classList.add('err'), err_str += "Login isn't entered!\n");
+
+  if(pack.email.length == 0)
+    (fields[1].classList.add('err'), err_str += "Email isn't entered!\n")
+    else if (!(/.+@.+\..+/i.test(pack.email))) (fields[1].classList.add('err'), err_str += "Email isn't valid!\n")
+
   if(fields[2].value.length == 0)
     (fields[2].classList.add('err'), err_str += "Password isn't entered!\n");
     else if(fields[2].value.length < 8)
     (fields[2].classList.add('err'), err_str += "Password is too short!\n");
+
   if(err_str != '') {
-    let info_str = e.target.parentElement.querySelector('.login-info-string');
+    let info_str = e.target.parentElement.querySelector('.register-info-string');
     info_str.classList.add('err');
     info_str.innerText = err_str;
     return;
