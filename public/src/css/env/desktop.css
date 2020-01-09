@@ -105,7 +105,7 @@ button#close_menu::before {
     background-color: var(--accent-close);
     transform: rotate(45deg);
     box-shadow: 0 0 0 0 var(--accent-close);
-    transition: 1s, box-shadow 1s linear;
+    transition: .5s ease .5s, box-shadow .5s linear;
 }
 
 :root.closed-menu button#close_menu::before {
@@ -115,6 +115,7 @@ button#close_menu::before {
     transform: rotate(0);
     box-shadow: 0 12.5px 0 0 var(--accent-2);
     background-color: var(--accent-1);
+    transition: 1s, box-shadow 1s linear;
 }
 
 button#close_menu::after {
@@ -127,7 +128,7 @@ button#close_menu::after {
     background-color: var(--accent-close);
     transform: rotate(-45deg);
     box-shadow: 0 0 0 0 var(--accent-close);
-    transition: 1s, box-shadow 1s linear;
+    transition: .5s ease .5s, box-shadow .5s linear;
 }
 
 :root.closed-menu button#close_menu::after {
@@ -137,6 +138,7 @@ button#close_menu::after {
     transform: rotate(0);
     box-shadow: 0 -12.5px 0 0 var(--accent-2);
     background-color: var(--accent-3);
+    transition: 1s, box-shadow 1s linear;
 }
 
 button[data-svgicon]::before {

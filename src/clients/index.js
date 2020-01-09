@@ -1,8 +1,8 @@
 const js_sha3 = require('js-sha3');
 
 const guid = () => {
-    const s4 = () => Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-    return s4() + s4() + '-' + s4() + '-' + s4() + '-' + s4() + '-' + s4() + s4() + s4();
+    const s4 = () => Math.floor(Math.random() * 0xFFFFFFFFFFFFF).toString(16).substring(1);
+    return s4() + s4() + s4() + s4();
 }
 
 // let clients = JSON.parse(global.fs.readFileSync(server_settings.clients, 'utf8'));
