@@ -1,32 +1,20 @@
 const js_sha3 = require('js-sha3');
 
-const guid = () => {
+global.guid = () => {
     const s4 = () => Math.floor(Math.random() * 0xFFFFFFFFFFFFF).toString(16).substring(1);
     return s4() + s4() + s4() + s4();
 }
 
-// let clients = JSON.parse(global.fs.readFileSync(server_settings.clients, 'utf8'));
-// let client_lock = false;
 const sessions = {};
 
 //Public access
-global.users = {
-
-};
+global.users = new Object;
 Object.defineProperties(global.users, {
   clients: {
     get: () => clients
   },
   sessions: {
     get: () => sessions
-  },
-  getClientSettingsProperty: (nickname, property) => clients[nickname].settings[property],
-  setClientSettingsProperty: async (nickname, property, value) => {
-    if(clients[nickname].settings[property] == value) return;
-    while(client_lock); //LOCK WAITING!
-    client_lock = true; //LOCK ON!
-    clients[nickname].settings[property] = value;
-    client_lock = false; //LOCK OFF!
   }
 });
 
@@ -68,7 +56,8 @@ const register = (socket, data) => {
         if(err) return console.error(err);
         sessions[data.uid] = {
           nickname: client_data.nickname,
-          settings: client_data.settings
+          settings: client_data.settings,
+          socket
         };
         return socket.send(`{"action":"setState","logined":true,"nickname":"${sessions[data.uid].nickname}","settings":${JSON.stringify(sessions[data.uid].settings)}}`);
       });
@@ -91,7 +80,8 @@ const login = (socket, data) =>
       sessions[data.uid] = {
         id: client._id,
         nickname: client.nickname,
-        settings: client.settings
+        settings: client.settings,
+        socket
       }
       return socket.send(`{"action":"setState","logined":true,"nickname":"${client.nickname}","settings":${JSON.stringify(client.settings)}}`);
 

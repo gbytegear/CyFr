@@ -1,5 +1,7 @@
 const client = require('./clients');
+const p2p = require('./p2p');
 const gets = require('./clients/data');
+
 
 const guid = () => {
     const s4 = () => Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
@@ -28,6 +30,14 @@ const messageProcessing = async (socket, data, request) => {
     case "getData":
     delete data.action;
     return (client.isLogined(data.uid)) ? gets(socket, data) : socket.send('{"action":"error","error":1,"error_str":"Client isn\' logined!"}');
+
+    case "offerSend":
+    delete data.action;
+    return p2p.sendOffer(socket, data);
+
+    case "offerAnswer":
+    delete data.action;
+    return p2p.answerOffer(data);
   }
 }
 
