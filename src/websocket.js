@@ -1,6 +1,6 @@
 const client = require('./clients');
-const p2p = require('./p2p');
-const gets = require('./clients/data');
+//const p2p = require('./p2p');
+//const gets = require('./clients/data');
 
 
 const guid = () => {

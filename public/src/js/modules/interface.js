@@ -19,7 +19,7 @@ document.querySelector('nav').addEventListener('click', (e)=>{
     if(e.target.tagName == "NAV" || e.target.id == "close_menu")return;
     switch (e.target.dataset.action) {
         case "Page":
-        return content_controller.open('page', 'any-page');
+        return content_controller.open('page', 'My page');
         case "Groups":
         case "Messages":
         case "Contacts":
@@ -28,7 +28,12 @@ document.querySelector('nav').addEventListener('click', (e)=>{
         case "Settings":
         modal_win.open(e.target.dataset.action);
     }
-})
+});
+
+document.querySelector('modal-win>.content').addEventListener('click', e=>{
+  if(typeof(e.target.dataset.group) != undefined)
+    return content_controller.open('page', 'Group');
+});
 
 
 let tab_click_state = 'select',
@@ -44,6 +49,7 @@ document.querySelector('article>.tabs').addEventListener('click', e => {
       last_tab = current_tab;
       current_tab = index;
     } else if (tab_click_state == 'swap') {
+      content_controller[swap_index].elements.tab_button.classList.remove('swap-selected');
       content_controller[swap_index].swap(content_controller[index]);
       tab_click_state = "select";
 
@@ -60,6 +66,7 @@ document.querySelector('article>.tabs').addEventListener('click', e => {
 document.querySelector('article>.tabs').addEventListener('contextmenu', e => {
     if(e.target.classList.contains('tabs'))return;
     swap_index = [].indexOf.call(e.target.parentElement.children, e.target);
+    content_controller[swap_index].elements.tab_button.classList.add('swap-selected');
     tab_click_state = "swap";
 });
 

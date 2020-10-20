@@ -1,7 +1,7 @@
 const url = require('url');
 const path = require('path');
 
-const clientGet = require('./clients/get');
+//const clientGet = require('./clients/get');
 
 const content_type = {
     '': 'text/html;charset=utf-8',
